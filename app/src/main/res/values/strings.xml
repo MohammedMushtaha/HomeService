@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">HomeService</string>
+    <string name="Hi_SIGNIN">Hi SIGNIN</string>
+    <string name="forget_pass">Forget Password ?</string>
+    <string name="New_Member">New Member ?</string>
+    <string name="setting_sign_out">SIGN OUT</string>
+    <string name="setting_sign_IN">SIGN IN</string>
+    <string name="setting_sign_up">SIGN UP</string>
+    <string name="btn_login">LOG IN</string>
+    <string name="get_start_now">Get Start Now </string>
+    <string name="email">Email</string>
+    <string name="Full_Name">FullName</string>
+    <string name="Service_provider">Service provider</string>
+    <string name="Customer">Customer</string>
+    <string name="Phone">Phone</string>
+    <string name="Have_Account">Have Account</string>
+    <string name="Terms_Conditions">Terms Conditions</string>
+    <string name="Select_Service">Select Service</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="tab_Pending">Pending</string>
+    <string name="tab_Completed">Completed</string>
+    <string name="tab_Underway">Underway</string>
+    <string name="Contact_Us">Contact Us</string>
+    <string name="Send">Send</string>
+    <string name="Type_Your_message_here">Type Your message here ....</string>
+
+</resources>

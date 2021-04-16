@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="email">الايميل</string>
+    <string name="app_name">خدمة البيوت</string>
+    <string name="Hi_SIGNIN">اهلا تسجيل دخول</string>
+    <string name="forget_pass">نسيت كلمة المرور ؟</string>
+    <string name="New_Member">عضو جديد ؟</string>
+    <string name="setting_sign_out">تسجيل خروج</string>
+    <string name="setting_sign_IN">تسجيل دخول</string>
+    <string name="setting_sign_up">تسجيل حساب جديد</string>
+    <string name="btn_login">تسجيل دخول</string>
+    <string name="get_start_now">ادخل الان  </string>
+    <string name="Service_provider">مقدم خدمة</string>
+    <string name="Customer">زبون</string>
+    <string name="Full_Name">الاسم كامل</string>
+    <string name="Phone">رقم الهاتف</string>
+    <string name="Have_Account">لديك حساب جديد ؟</string>
+    <string name="Terms_Conditions">شروط وسياسات الخصوصية</string>
+    <string name="Select_Service"> اختر الخدمة</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="tab_Pending">قيد الانتظار</string>
+    <string name="tab_Completed">منتهية</string>
+    <string name="tab_Underway">قيد التنفيذ</string>
+    <string name="Contact_Us">تواصل معنا</string>
+    <string name="Send">ارسال</string>
+    <string name="Type_Your_message_here">أكتب رسالتك هنا</string>
+
+</resources>

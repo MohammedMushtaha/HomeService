@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@color/white"
+    android:layoutDirection="ltr"
+    android:orientation="horizontal"
+    android:weightSum="2">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.4"
+        android:orientation="vertical">
+
+        <com.voise.homeservisegraduateproject.customfonts.MyTextView
+            android:id="@+id/order_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_margin="5dp"
+            android:gravity="left"
+            android:text="Order #52001"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+
+            <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                android:id="@+id/order_booking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_margin="5dp"
+                android:gravity="left"
+                android:text="Service Type :"
+                android:textColor="@color/colorSilver"
+                android:textSize="12sp" />
+
+            <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                android:id="@+id/order_cat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_margin="5dp"
+                android:gravity="left"
+                android:text="Carpenter"
+
+                android:textColor="@color/colorDark" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.6"
+        android:layoutDirection="ltr"
+
+
+        android:orientation="vertical">
+
+        <com.voise.homeservisegraduateproject.customfonts.MyTextView
+            android:id="@+id/order_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="5dp"
+            android:gravity="left"
+            android:text="28 Nov 2019"
+            android:textColor="@color/colorSilver"
+            android:textDirection="ltr"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+</LinearLayout>

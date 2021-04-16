@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_splash"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:background="#00F5F5F5"
+                android:layoutDirection="locale">
+
+                <ImageView
+                    android:id="@+id/image_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/ic_back">
+
+                </ImageView>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.8"
+                android:background="@drawable/shape_login"
+                android:layoutDirection="locale"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:weightSum="10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1.5"
+                    android:weightSum="2"
+                     android:orientation="horizontal">
+
+                    <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                        android:id="@+id/Service_provider"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/Service_provider"
+                        android:textColor="@color/colorDark"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                        android:id="@+id/Customer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/Customer"
+                        android:textColor="@color/colorDark"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <com.voise.homeservisegraduateproject.customfonts.MyEditText
+                    android:id="@+id/E_edit_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_selector"
+                    android:hint="@string/Full_Name"
+                    android:inputType="textPersonName"
+                    android:padding="12dp"
+                    android:textColor="@color/colorDark"
+                    android:textSize="14sp" />
+
+                <com.voise.homeservisegraduateproject.customfonts.MyEditText
+                    android:id="@+id/E_edit_email"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_selector"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:padding="12dp"
+                    android:textColor="@color/colorDark"
+                    android:textSize="14sp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1.1"
+                    android:background="@drawable/shape_selector"
+                    android:layoutDirection="locale"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.85"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_arabic">
+
+                        </ImageView>
+
+                        <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:gravity="center"
+                            android:text="+966"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <com.voise.homeservisegraduateproject.customfonts.MyEditText
+                        android:id="@+id/E_edit_phone"
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1.15"
+                        android:background="@drawable/shape_phone"
+                        android:hint="@string/Phone"
+                        android:padding="5dp"
+                        android:textColor="@color/colorDark"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+
+                <com.marlonmafra.android.widget.EditTextPassword
+                    android:id="@+id/E_edit_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1.1"
+                    android:background="@drawable/shape_password"
+                    android:gravity="center"
+                    android:hint="********"
+                    android:inputType="textPassword"
+                    android:padding="10dp"
+                    android:textColor="@color/colorDark"
+                    android:textSize="14sp"
+                    app:hidePasswordIcon="@drawable/ic_hide_password"
+                    app:iconPosition="right"
+                    app:showPasswordIcon="@drawable/ic_show_password" />
+
+
+
+
+                <Spinner
+                    android:id="@+id/serves_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_selector"
+                    android:drawableRight="@drawable/ic_keyboard_arrow_down"
+                    android:hint="@string/Select_Service"
+                    android:layoutDirection="locale"
+                    android:padding="10dp"
+
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:id="@+id/da"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:layoutDirection="locale"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:src="@drawable/ic_check" />
+
+                    <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                        android:id="@+id/text_policy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:text="@string/Terms_Conditions"
+                        android:textColor="@color/colorDark"
+                        android:textSize="14sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="2.2"
+                    android:layoutDirection="locale"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/sign_in"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/Have_Account"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/setting_sign_IN"
+                                android:textColor="@color/colorDark"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <com.voise.homeservisegraduateproject.customfonts.MyButton
+                            android:id="@+id/btn_signUp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shape_gradient_btn"
+                            android:text="@string/setting_sign_up"
+                            android:textColor="#fff"
+                            android:textSize="14sp"
+
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>
