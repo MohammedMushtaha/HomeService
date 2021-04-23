@@ -1,14 +1,14 @@
-package com.voise.homeservisegraduateproject.ui.ui.dashboard;
+package com.voise.homeservisegraduateproject.ui.ui.moreApp;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class DashboardViewModel extends ViewModel {
+public class MoreViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public DashboardViewModel() {
+    public MoreViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is dashboard fragment");
     }

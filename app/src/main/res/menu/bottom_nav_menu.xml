@@ -17,7 +17,7 @@
         android:title="User" />
 
     <item
-        android:id="@+id/navigation_notifications1"
+        android:id="@+id/navigation_more"
         android:icon="@drawable/ic_user"
         android:title="More" />
 </menu>

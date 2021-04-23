@@ -24,6 +24,8 @@
     <string name="tab_Underway">Underway</string>
     <string name="Contact_Us">Contact Us</string>
     <string name="Send">Send</string>
-    <string name="Type_Your_message_here">Type Your message here ....</string>
+    <string name="Favorite">Favorite</string>
+    <string name="Language">Language</string>
+     <string name="Type_Your_message_here">Type Your message here ....</string>
 
 </resources>

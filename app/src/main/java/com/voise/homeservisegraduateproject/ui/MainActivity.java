@@ -7,6 +7,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.voise.homeservisegraduateproject.R;
 import com.voise.homeservisegraduateproject.ui.ui.home.HomeFragment;
+import com.voise.homeservisegraduateproject.ui.ui.moreApp.MoreFragment;
 import com.voise.homeservisegraduateproject.ui.ui.order.PlaceholderFragment;
 import com.voise.homeservisegraduateproject.ui.ui.userSetting.UserSettingFragment;
 
@@ -48,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new UserSettingFragment(getApplication())).commit();
 
                         return true;
-                    case R.id.navigation_notifications1:
+                    case R.id.navigation_more:
                         Toast.makeText(MainActivity.this, "4", Toast.LENGTH_SHORT).show();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new PlaceholderFragment(getApplication())).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new MoreFragment(getApplication())).commit();
 
                         return true;
                 }

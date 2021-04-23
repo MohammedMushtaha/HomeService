@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -25,7 +25,7 @@
                 android:layout_weight="0.3"
                 android:background="#00F5F5F5"
 
-                android:layoutDirection="ltr"
+                android:layoutDirection="locale"
                 android:padding="15dp">
 
                 <ImageView
@@ -59,7 +59,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1.7"
                 android:background="@drawable/shape_login"
-                android:layoutDirection="ltr"
+                android:layoutDirection="locale"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -177,15 +177,15 @@
                         <com.voise.homeservisegraduateproject.customfonts.MyTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:text="Favorite"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/Favorite"
                             android:textColor="#000"
                             android:textSize="14sp" />
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
                             android:src="@drawable/ic_go" />
 
@@ -197,19 +197,19 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
-                        android:padding="3dp"
-
                         android:layout_marginRight="10dp"
+
                         android:layout_marginBottom="15dp"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:padding="3dp">
 
                         <com.voise.homeservisegraduateproject.customfonts.MyTextView
                             android:id="@+id/text"
                             android:layout_width="wrap_content"
 
                             android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:text="Language"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/Language"
                             android:textColor="#000"
                             android:textSize="14sp" />
 
@@ -218,18 +218,17 @@
                             android:id="@+id/img_go"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
                             android:src="@drawable/ic_go" />
 
                         <com.voise.homeservisegraduateproject.customfonts.MyTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="15dp"
-                            android:layout_toLeftOf="@+id/img_go"
+                            android:layout_marginEnd="15dp"
+                            android:layout_toStartOf="@+id/img_go"
                             android:text="English"
                             android:textColor="@color/colorSilver"
-
                             android:textSize="12sp" />
                     </RelativeLayout>
 
@@ -244,20 +243,18 @@
                         android:gravity="center"
                         android:padding="3dp">
 
-
                         <com.voise.homeservisegraduateproject.customfonts.MyTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:text="Contact us"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/Contact_Us"
                             android:textColor="#000"
-
                             android:textSize="13sp" />
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
                             android:src="@drawable/ic_go"
                             android:textSize="14sp" />
@@ -272,12 +269,12 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/shape_setting2"
                     android:gravity="center"
-                    android:layoutDirection="rtl">
+                    android:layoutDirection="locale">
 
                     <com.voise.homeservisegraduateproject.customfonts.MyTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginEnd="10dp"
                         android:gravity="center"
                         android:text="@string/setting_sign_out"
 
@@ -299,14 +296,11 @@
             android:layout_width="95dp"
             android:layout_height="95dp"
             android:layout_centerHorizontal="true"
-
             android:layout_marginTop="55dp"
             android:background="@drawable/shape_setting_image_user"
             android:elevation="10dp"
             android:padding="15dp"
-            app:cardCornerRadius="10dp"
-
-            >
+            app:cardCornerRadius="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -350,7 +344,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layoutDirection="ltr"
+            android:layoutDirection="locale"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -382,7 +376,7 @@
                 android:layout_height="45dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/shape_selector"
-                android:layoutDirection="ltr"
+                android:layoutDirection="locale"
                 android:weightSum="2">
 
 
@@ -413,7 +407,6 @@
 
                 <com.voise.homeservisegraduateproject.customfonts.MyEditText
                     android:id="@+id/E_edit_phone"
-
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -423,14 +416,12 @@
                     android:hint="@string/Phone"
                     android:inputType="phone"
                     android:padding="5dp"
-
                     android:textColor="@color/colorDark"
                     android:textSize="13sp" />
             </LinearLayout>
 
             <com.voise.homeservisegraduateproject.customfonts.MyEditText
                 android:id="@+id/E_edit_email"
-
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginBottom="10dp"
@@ -443,7 +434,6 @@
 
             <com.voise.homeservisegraduateproject.customfonts.MyEditText
                 android:id="@+id/E_edit_text"
-
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
                 android:layout_gravity="center"
@@ -464,13 +454,9 @@
                 android:background="@drawable/btn_setting"
                 android:text="@string/Send"
                 android:textColor="@color/white"
-
                 android:textSize="13sp"
                 android:textStyle="bold" />
 
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
