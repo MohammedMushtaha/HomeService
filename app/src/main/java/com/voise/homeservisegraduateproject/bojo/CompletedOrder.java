@@ -15,6 +15,7 @@ public class CompletedOrder implements Serializable {
         this.order_name = order_name;
         this.order_cat = order_cat;
     }
+    //kareem test git
 
     public int getId() {
         return id;
