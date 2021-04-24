@@ -27,6 +27,13 @@
     <string name="Send">ارسال</string>
     <string name="Favorite">المفضلة</string>
     <string name="Language">اللغة</string>
+    <string name="setting_change">تغير كلمة المرور</string>
+    <string name="setting_faqs">الأسئلة الشائعة</string>
+    <string name="setting_about">عن التطبيق </string>
+    <string name="setting_terms">أحكام وشروط</string>
+    <string name="setting_privacy">سياسة الخصوصية</string>
+    <string name="setting_rating">تقيم التطبيق </string>
+    <string name="more">المزيد</string>
 
     <string name="Type_Your_message_here">أكتب رسالتك هنا</string>
 

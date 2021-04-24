@@ -26,6 +26,14 @@
     <string name="Send">Send</string>
     <string name="Favorite">Favorite</string>
     <string name="Language">Language</string>
-     <string name="Type_Your_message_here">Type Your message here ....</string>
+    <string name="setting_change">Change Password</string>
+    <string name="setting_faqs">FAQ,s</string>
+    <string name="setting_about">About App</string>
+    <string name="setting_terms">Terms and Condition</string>
+    <string name="setting_privacy">Privacy Policy</string>
+    <string name="setting_rating">Rating App</string>
+    <string name="more">more</string>
+
+    <string name="Type_Your_message_here">Type Your message here ....</string>
 
 </resources>
