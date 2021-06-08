@@ -32,8 +32,14 @@
     <string name="setting_terms">Terms and Condition</string>
     <string name="setting_privacy">Privacy Policy</string>
     <string name="setting_rating">Rating App</string>
-    <string name="more">more</string>
+    <string name="more">More</string>
+    <string name="Confirm_Password">Confirm Password</string>
+    <string name="New_Password">New Password</string>
+    <string name="Current_Password">Current Password</string>
+    <string name="Change_Password"> Change Password </string>
 
     <string name="Type_Your_message_here">Type Your message here ....</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

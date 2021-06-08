@@ -10,6 +10,8 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/edit_frame"
+
         tools:context=".ui.ui.moreApp.MoreFragment">
 
 
@@ -239,7 +241,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:text="Change Password"
+                    android:text="@string/Change_Password"
                     android:textColor="@color/black"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -251,7 +253,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/shape_selector"
-                    android:hint="Current Password"
+                    android:hint="@string/Current_Password"
                     android:inputType="textPassword"
                     android:padding="10dp"
                     android:textColor="@color/colorDark"
@@ -267,7 +269,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/shape_selector"
-                    android:hint="New Password"
+                    android:hint="@string/New_Password"
                     android:inputType="textPassword"
                     android:padding="10dp"
                     android:textColor="@color/colorDark"
@@ -284,7 +286,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/shape_selector"
-                    android:hint="Confirm Password"
+                    android:hint="@string/Confirm_Password"
                     android:inputType="textPassword"
                     android:padding="10dp"
                     android:textColor="@color/colorDark"

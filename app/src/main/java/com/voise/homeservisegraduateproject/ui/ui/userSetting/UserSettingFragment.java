@@ -1,7 +1,6 @@
 package com.voise.homeservisegraduateproject.ui.ui.userSetting;
 
-import android.app.ProgressDialog;
-import android.content.Context;
+ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -38,8 +37,7 @@ public class UserSettingFragment extends Fragment {
     View view;
     View bottomSheet1;
     ImageView image_setting, image_notification, image_edit_profile, image_user;
-    private ProgressDialog pDialog;
-    private Button btn_send;
+     private Button btn_send;
     private EditText E_edit_name, E_edit_email, E_edit_phone, E_edit_text;
     private TextView CityOfUser, NameOfUser;
 

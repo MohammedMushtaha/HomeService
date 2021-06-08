@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.voise.homeservisegraduateproject.R;
+import com.voise.homeservisegraduateproject.SharedPreferanse.SharedPreferanse;
 import com.voise.homeservisegraduateproject.ui.auth.login.LoginActivity;
 
 public class SplashScreen extends AppCompatActivity {
@@ -15,6 +16,8 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        SharedPreferanse.init(this);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

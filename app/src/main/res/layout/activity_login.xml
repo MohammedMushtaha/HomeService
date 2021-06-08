@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+<variable
+    name="viewModel"
+    type="com.voise.homeservisegraduateproject.ui.auth.login.LoginViewModel" />
     </data>
 
     <RelativeLayout
+        android:id="@+id/editFrame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/editFrame"
         tools:context=".ui.auth.login.LoginActivity">
 
         <LinearLayout
@@ -57,29 +59,73 @@
                     android:orientation="horizontal"
                     android:weightSum="2">
 
-                    <com.voise.homeservisegraduateproject.customfonts.MyTextView
-                      android:id="@+id/Service_provider"
+                    <LinearLayout
+                        android:id="@+id/Service_provider"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="@string/Service_provider"
-                        android:textColor="@color/colorDark"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
+                        android:orientation="vertical">
 
-                    <com.voise.homeservisegraduateproject.customfonts.MyTextView
+
+                        <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/Service_provider"
+                            android:textColor="@color/colorDark"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:id="@+id/lineService"
+                            android:layout_width="20dp"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="6dp"
+                            android:background="@color/colorDark">
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
                         android:id="@+id/Customer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="@string/Customer"
-                        android:textColor="@color/colorDark"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
+                        android:orientation="vertical">
+
+
+                        <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/Customer"
+                            android:textColor="@color/colorDark"
+                            android:textSize="15dp"
+                            android:textStyle="bold"
+                            />
+
+                        <LinearLayout
+                            android:id="@+id/lineCustomer"
+                            android:layout_width="20dp"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="6dp"
+                            android:background="@color/colorDark"
+                            android:visibility="gone">
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
                 </LinearLayout>
 
 
@@ -101,18 +147,19 @@
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="12dp"
                         android:layout_weight="2"
-                        android:fontFamily="sans-serif-smallcaps"
                         android:background="@drawable/shape_phone"
+                        android:fontFamily="sans-serif-smallcaps"
                         android:hint="@string/email"
                         android:inputType="textEmailAddress"
                         android:padding="5dp"
+                        android:text="@={viewModel.emailEdit}"
                         android:textColor="@color/colorDark"
                         android:textSize="14sp" />
                 </LinearLayout>
 
 
                 <com.marlonmafra.android.widget.EditTextPassword
-                    android:id="@+id/E_edit_password"
+                    android:id="@+id/edit_password"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_gravity="center"
@@ -121,6 +168,8 @@
                     android:background="@drawable/shape_password"
                     android:gravity="center"
                     android:hint="********"
+                    android:text="@={viewModel.passEdit}"
+
                     android:inputType="textPassword"
                     android:padding="10dp"
                     android:textColor="@color/colorDark"

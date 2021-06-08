@@ -53,8 +53,8 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1.5"
-                    android:weightSum="2"
-                     android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
                     <com.voise.homeservisegraduateproject.customfonts.MyTextView
                         android:id="@+id/Service_provider"
@@ -97,7 +97,6 @@
 
                 <com.voise.homeservisegraduateproject.customfonts.MyEditText
                     android:id="@+id/E_edit_email"
-
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginBottom="10dp"
@@ -108,7 +107,6 @@
                     android:padding="12dp"
                     android:textColor="@color/colorDark"
                     android:textSize="14sp" />
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -148,7 +146,6 @@
 
                     <com.voise.homeservisegraduateproject.customfonts.MyEditText
                         android:id="@+id/E_edit_phone"
-
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -160,7 +157,6 @@
                         android:textColor="@color/colorDark"
                         android:textSize="14sp" />
                 </LinearLayout>
-
 
                 <com.marlonmafra.android.widget.EditTextPassword
                     android:id="@+id/E_edit_password"
@@ -180,9 +176,6 @@
                     app:iconPosition="right"
                     app:showPasswordIcon="@drawable/ic_show_password" />
 
-
-
-
                 <Spinner
                     android:id="@+id/serves_spinner"
                     android:layout_width="match_parent"
@@ -195,7 +188,6 @@
                     android:hint="@string/Select_Service"
                     android:layoutDirection="locale"
                     android:padding="10dp"
-
                     android:textSize="14sp" />
 
                 <LinearLayout
@@ -223,7 +215,6 @@
                         android:text="@string/Terms_Conditions"
                         android:textColor="@color/colorDark"
                         android:textSize="14sp" />
-
 
                 </LinearLayout>
 
@@ -281,7 +272,6 @@
                             android:text="@string/setting_sign_up"
                             android:textColor="#fff"
                             android:textSize="14sp"
-
                             android:textStyle="bold" />
 
 
@@ -289,6 +279,5 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-
     </RelativeLayout>
 </layout>

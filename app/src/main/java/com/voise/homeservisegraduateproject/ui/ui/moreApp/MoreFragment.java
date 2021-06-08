@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -19,6 +21,7 @@ import com.voise.homeservisegraduateproject.R;
 //import com.voise.homeservisegraduateproject.databinding.FragmentMoreBinding;
 import com.voise.homeservisegraduateproject.databinding.FragmentMoreBinding;
 import com.voise.homeservisegraduateproject.ui.ui.home.HomeViewModel;
+import com.voise.homeservisegraduateproject.ui.ui.moreApp.AboutApp.AboutAppFragment;
 import com.voise.homeservisegraduateproject.utils.Functions;
 
 import java.util.function.Function;
@@ -34,6 +37,7 @@ public class MoreFragment extends Fragment {
         this.context = context;
 
     }
+
     private View bottomSheet1;
 
     FragmentMoreBinding binding;
@@ -46,7 +50,7 @@ public class MoreFragment extends Fragment {
         dashboardViewModel =
                 new ViewModelProvider(this).get(MoreViewModel.class);
 
-         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_more, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_more, container, false);
         root = binding.getRoot();
         binding.setLifecycleOwner(getActivity());
         bottomSheet1 = root.findViewById(R.id.buttomSheet1);
@@ -92,16 +96,23 @@ public class MoreFragment extends Fragment {
                 Functions.getInstanse().click_out(getActivity());
             }
         });
-//  Toolbar toolbar = (Toolbar) root.findViewById(R.id.toolbar);
-//        ImageView image_back = toolbar.findViewById(R.id.image_back_toolbar);
-//        TextView title_toolbar = toolbar.findViewById(R.id.text_toolbar);
-//        title_toolbar.setText(getResources().getString(R.string.more));
-//        image_back.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                getActivity().finish();
-//            }
-//        });
+
+
+        binding.aboutApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AboutAppFragment fragment2 = new AboutAppFragment();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fm.beginTransaction().addToBackStack(null);
+//        Bundle args = new Bundle();
+//        args.putString("m", m);
+//        fragment2.setArguments(args);
+                fragmentTransaction.replace(R.id.edit_frame, fragment2);
+                fragmentTransaction.commit();
+            }
+        });
+         TextView title_toolbar = root.findViewById(R.id.text_toolbar);
+        title_toolbar.setText(getResources().getString(R.string.more));
+
     }
 }
