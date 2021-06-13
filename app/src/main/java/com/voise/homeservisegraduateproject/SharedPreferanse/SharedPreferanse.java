@@ -17,32 +17,42 @@ public class SharedPreferanse {
     private static final String PREF_NAME = "DATA";
     public static String APP_LANGUAGE = "APP_LANGUAGE";
     public static String IS_FIRST_LAUNCH = "IS_FIRST_LAUNCH";
-    public static String ID = "ID";
-    public static String TOKEN = "TOKEN";
-    public static String USER_TYPE = "USER_TYPE";
-    public static String USERNAME = "USERNAME";
-    public static String NAME = "NAME";
-    public static String active = "NAME";
-    public static String IMAGE = "IMAGE";
+
+    public static String IDCustomer = "IDCustomer";
+    public static String IDProvider = "IDProvider";
+
+    public static String TOKENProvider = "TOKENProvider";
+    public static String TOKENCustomer = "TOKENCustomer";
+
+    public static String USERNAMEProvider = "USERNAMEProvider";
+    public static String USERNAMECustomer = "USERNAMECustomer";
+
+    public static String IMAGEProvider = "IMAGEProvider";
+    public static String IMAGECustomer = "IMAGECustomer";
+
+    public static String MOBILEProvider = "MOBILEProvider";
+    public static String MOBILECustomer = "MOBILECustomer";
+
+    public static String EmailProvider = "EmailProvider";
+    public static String EmailCustomer = "EmailCustomer";
+
+    public static String WorkId = "WorkId";
+    public static String active = "active";
+
+    public static String LoginChoice = "LoginChoice";
+    public static String RegisterChoice = "RegisterChoice";
+
     public static String Note = "Note";
-    public static String MOBILE = "MOBILE";
-    public static String EMAIL = "EMAIL";
     public static String IMAGE_CATEGORIES = "IMAGE_CATEGORIES";
     public static String TITLE_CATEGORIES = "TITLE_CATEGORIES";
     public static String ID_CATEGORIES = "ID_CATEGORIES";
     public static final String SP_USER = "user";
     public static final String SP_API_TOKEN = "fcm_token";
-    public static String PASSWORD = "PASSWORD";
-    public static String ADDRESS = "ADDRESS";
-    public static String CITY = "CITY";
-    public static String CITY_Title = "CITY_Title";
+
+     public static String CITY_Title = "CITY_Title";
     public static String Country_Title = "Country_Title";
-    public static String Country = "Country";
-    public static String YEAR = "YEAR";
-    public static String LANT = "LANT";
-    public static String LONG = "LONG";
-    public static String PIC = "PIC";
-    public static String LoginChoice = "LoginChoice";
+
+
     public static String Id_Details = "Id_Details";
     public static String PICKUP_LANT = "PICKUP_LANT";
     public static String PICKUP_LONG = "PICKUP_LONG";

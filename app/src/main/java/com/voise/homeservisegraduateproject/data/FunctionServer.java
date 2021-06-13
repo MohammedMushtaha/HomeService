@@ -1,10 +1,9 @@
 package com.voise.homeservisegraduateproject.data;
 
 
-import com.voise.homeservisegraduateproject.bojo.AuthResponse;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.voise.homeservisegraduateproject.bojo.AllWorkDataResponse;
+import com.voise.homeservisegraduateproject.bojo.AuthResponseCustomer;
+import com.voise.homeservisegraduateproject.bojo.AuthResponseProvider;
 
 import retrofit2.Call;
 
@@ -15,31 +14,45 @@ public class FunctionServer {
     private DataInterface dataInterface;
     private static FunctionServer Instanse;
     public static boolean authorization1 = false;
+
     public FunctionServer() {
 //        Retrofit retrofit = new Retrofit.Builder()
 //                .baseUrl(BaseUrl)
 //                .addConverterFactory(GsonConverterFactory.create())
 //                .build();
-        System.out.println("Log authorization1 "+authorization1);
+        System.out.println("Log authorization1 " + authorization1);
 
         dataInterface = ApiClient.getClient(authorization1, 1).create(DataInterface.class);
     }
 
     public static FunctionServer getInstanse(boolean authorization) {
-        System.out.println("Log authorization1ss "+authorization1);
+        System.out.println("Log authorization1ss " + authorization1);
         if (null == Instanse) {
             Instanse = new FunctionServer();
         }
         return Instanse;
     }
 
-    public Call<AuthResponse> loginAsCustomer(String email, String password) {
+    public Call<AuthResponseCustomer> loginAsCustomer(String email, String password) {
         return dataInterface.loginAsCustomer(email, password);
     }
 
-    public Call<AuthResponse> loginAsServiceProvider(String email, String password) {
+    public Call<AuthResponseProvider> loginAsServiceProvider(String email, String password) {
         return dataInterface.loginAsServiceProvider(email, password);
     }
+
+    public Call<AuthResponseCustomer> RegisterCustomer(String name, String email, String password, String phone) {
+        return dataInterface.RegisterCustomer(name, email, password, phone);
+    }
+
+    public Call<AuthResponseProvider> RegisterProvider(String name, String email, String password, String phone, int work_id) {
+        return dataInterface.RegisterProvider(name, email, password, phone, work_id);
+    }
+
+    public Call<AllWorkDataResponse> getAllWorkResponse() {
+        return dataInterface.getAllWorkResponse();
+    }
+
 //
 //    public Call<ResponseStatus> Rating(double rate, String comment, int service_id) {
 //        return dataInterface.Rating(rate, comment, service_id);

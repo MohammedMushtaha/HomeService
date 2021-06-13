@@ -20,11 +20,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.voise.homeservisegraduateproject.R;
 import com.voise.homeservisegraduateproject.adapter.AdapterSliderHome;
 import com.voise.homeservisegraduateproject.adapter.CategoriesAdapter;
+import com.voise.homeservisegraduateproject.adapter.SpinnerAdapter;
 import com.voise.homeservisegraduateproject.bojo.CategoryData;
+import com.voise.homeservisegraduateproject.bojo.DataWork;
 import com.voise.homeservisegraduateproject.bojo.ImageModel_slider;
 import com.voise.homeservisegraduateproject.databinding.FragmentHomeBinding;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class HomeFragment extends Fragment {
@@ -32,10 +35,9 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     Context context;
     ArrayList<ImageModel_slider> modelsliders = new ArrayList<>();
-    ArrayList<CategoryData> categoryData = new ArrayList<>();
     AdapterSliderHome lettersUserAnswer;
     CategoriesAdapter categoriesAdapter;
-    FragmentHomeBinding binding;
+    FragmentHomeBinding fragmentHomeBinding;
     View root;
 
     LinearLayoutManager horizontalLayoutManagaer;
@@ -49,41 +51,23 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
-        root = binding.getRoot();
-        binding.setLifecycleOwner(getActivity());
+        fragmentHomeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
+        root = fragmentHomeBinding.getRoot();
+        fragmentHomeBinding.setLifecycleOwner(getActivity());
 
-
-        //        final TextView textView = root.findViewById(R.id.text_home);
-//        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
 
         loadData();
 
         horizontalLayoutManagaer
                 = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
-        binding.recyclerView.setLayoutManager(horizontalLayoutManagaer);
+        fragmentHomeBinding.recyclerView.setLayoutManager(horizontalLayoutManagaer);
         modelsliders.add(new ImageModel_slider(R.drawable.shape_slider_white));
 
         lettersUserAnswer = new AdapterSliderHome(getActivity(), modelsliders);
-        binding.recyclerView.setAdapter(lettersUserAnswer);
+        fragmentHomeBinding.recyclerView.setAdapter(lettersUserAnswer);
 
 
-        loadDataCategory();
-
-        GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 3);
-
-        binding.recyclerViewCategory.setLayoutManager(mLayoutManager);
-        categoriesAdapter = new CategoriesAdapter();
-
-        categoriesAdapter.setList(getActivity(),categoryData);
-        binding.recyclerViewCategory.setAdapter(categoriesAdapter);
-
-
+        getAllWorkData();
 
 
         return root;
@@ -98,16 +82,21 @@ public class HomeFragment extends Fragment {
     }
 
 
-    public void loadDataCategory() {
+    public void getAllWorkData() {
+        homeViewModel.getAllWorkData();
+        categoriesAdapter = new CategoriesAdapter();
+        GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 3);
+        fragmentHomeBinding.recyclerViewCategory.setLayoutManager(mLayoutManager);
+        fragmentHomeBinding.recyclerViewCategory.setAdapter(categoriesAdapter);
+        homeViewModel.listMutableLiveDataِAllWork.observe(getActivity(), new Observer<List<DataWork>>() {
+            @Override
+            public void onChanged(List<DataWork> dataWorks) {
 
-        categoryData.add(new CategoryData(1,R.drawable.ic_logo,"Electricity"));
-        categoryData.add(new CategoryData(1,R.drawable.ic_electricity_logo,"Electricity"));
-        categoryData.add(new CategoryData(1,R.drawable.ic_electricity_logo,"Electricity"));
-        categoryData.add(new CategoryData(1,R.drawable.ic_electricity_logo,"Electricity"));
-        categoryData.add(new CategoryData(1,R.drawable.ic_electricity_logo,"Electricity"));
-        categoryData.add(new CategoryData(1,R.drawable.ic_electricity_logo,"Electricity"));
-        categoryData.add(new CategoryData(1,R.drawable.ic_electricity_logo,"Electricity"));
+                categoriesAdapter.setList(getActivity(), dataWorks);
 
+
+            }
+        });
     }
 
 }

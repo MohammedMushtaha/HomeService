@@ -8,7 +8,9 @@ import android.os.Handler;
 
 import com.voise.homeservisegraduateproject.R;
 import com.voise.homeservisegraduateproject.SharedPreferanse.SharedPreferanse;
+import com.voise.homeservisegraduateproject.ui.MainActivity;
 import com.voise.homeservisegraduateproject.ui.auth.login.LoginActivity;
+import com.voise.homeservisegraduateproject.ui.ui.MainActivity2;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -21,11 +23,23 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i=new Intent(SplashScreen.this, LoginActivity.class);
-                startActivity(i);
-                finish();
+                if (!SharedPreferanse.read(SharedPreferanse.IDCustomer,"").equals("")){
+//                    SharedPreferanse.TOKEN_AUTH =  SharedPreferanse.read(SharedPreferanse.TOKEN,"");
+                    Intent i = new Intent(SplashScreen.this, MainActivity.class);
+                    startActivity(i);
+                    finish();
+
+                }else  if (!SharedPreferanse.read(SharedPreferanse.IDProvider,"").equals("")) {
+                    Intent i = new Intent(SplashScreen.this, MainActivity2.class);
+                    startActivity(i);
+                    finish();
+                }else {
+                    Intent i = new Intent(SplashScreen.this, LoginActivity.class);
+                    startActivity(i);
+                    finish();
+                }
             }
         },2000);
-
     }
 }
+

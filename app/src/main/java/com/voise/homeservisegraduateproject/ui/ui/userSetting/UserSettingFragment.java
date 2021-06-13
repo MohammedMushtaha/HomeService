@@ -23,7 +23,9 @@ import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.squareup.picasso.Picasso;
 import com.voise.homeservisegraduateproject.R;
-import com.voise.homeservisegraduateproject.utils.Functions;
+ import com.voise.homeservisegraduateproject.SharedPreferanse.SharedPreferanse;
+ import com.voise.homeservisegraduateproject.ui.auth.login.LoginActivity;
+ import com.voise.homeservisegraduateproject.utils.Functions;
 
 
 public class UserSettingFragment extends Fragment {
@@ -77,6 +79,16 @@ public class UserSettingFragment extends Fragment {
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet1);
 
         log_out = view.findViewById(R.id.log_out);
+        log_out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferanse.clear();
+
+                Intent i = new Intent(getActivity(), LoginActivity.class);
+                startActivity(i);
+                getActivity().finish();
+            }
+        });
 
     }
 

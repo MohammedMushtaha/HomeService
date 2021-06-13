@@ -4,19 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+
 import com.voise.homeservisegraduateproject.R;
 import com.voise.homeservisegraduateproject.SharedPreferanse.SharedPreferanse;
-import com.voise.homeservisegraduateproject.bojo.AuthResponse;
+import com.voise.homeservisegraduateproject.bojo.AuthResponseCustomer;
+import com.voise.homeservisegraduateproject.bojo.AuthResponseProvider;
+import com.voise.homeservisegraduateproject.data.LiveDataModel;
 import com.voise.homeservisegraduateproject.databinding.ActivityLoginBinding;
 import com.voise.homeservisegraduateproject.ui.MainActivity;
+import com.voise.homeservisegraduateproject.ui.auth.register.RegisterFragment;
+import com.voise.homeservisegraduateproject.ui.ui.MainActivity2;
 import com.voise.homeservisegraduateproject.utils.Functions;
-
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -46,6 +49,15 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+        activityLoginBinding.signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.editFrame, new RegisterFragment()).addToBackStack(null).commit();
+
+            }
+        });
+
         activityLoginBinding.Customer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
         activityLoginBinding.editFrame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +79,6 @@ public class LoginActivity extends AppCompatActivity {
         activityLoginBinding.btnSignIN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(LoginActivity.this, "sd", Toast.LENGTH_SHORT).show();
                 try {
                     if (activityLoginBinding.editEmail.getText().toString().equals("") && activityLoginBinding.editPassword.getText().toString().equals("")) {
 
@@ -94,34 +106,37 @@ public class LoginActivity extends AppCompatActivity {
         Intent i = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(i);
     }
-
+    private void LoadFragmentProvider() {
+        Intent i = new Intent(LoginActivity.this, MainActivity2.class);
+        startActivity(i);
+    }
     public void LoginResponse() {
 
         if (SharedPreferanse.read(SharedPreferanse.LoginChoice, "1").equals("1")) {
             Functions.getInstanse().showDialog(LoginActivity.this, "Please Waite");
-            loginViewModel.loginFunction();
+            addDataServiceProvider();
             Log.e("ex1", "4");
-            loginViewModel.authResponseMutableLiveData.observe(this, new Observer<AuthResponse>() {
+            loginViewModel.authResponseMutableLiveDataProvider.observe(this, new LiveDataModel.Observer<AuthResponseProvider>() {
                 @Override
-                public void onChanged(AuthResponse authResponse) {
+                public void onChanged(AuthResponseProvider authResponse) {
                     Log.e("ex1", "5");
 
                     if (authResponse.isStatus()) {
                         Functions.getInstanse().hideDialog();
                         Log.e("ex1", "6");
                         Toast.makeText(LoginActivity.this, "Done", Toast.LENGTH_SHORT).show();
-                        SharedPreferanse.write(SharedPreferanse.ID, authResponse.getData().getId() + "");
-                        SharedPreferanse.write(SharedPreferanse.EMAIL, authResponse.getData().getName());
-                        SharedPreferanse.write(SharedPreferanse.USERNAME, authResponse.getData().getEmail());
-                        SharedPreferanse.write(SharedPreferanse.IMAGE, authResponse.getData().getPhoto());
-                        SharedPreferanse.write(SharedPreferanse.MOBILE, authResponse.getData().getPhone());
+                        SharedPreferanse.write(SharedPreferanse.IDProvider, authResponse.getData().getId() + "");
+                        SharedPreferanse.write(SharedPreferanse.USERNAMEProvider, authResponse.getData().getEmail());
+                        SharedPreferanse.write(SharedPreferanse.EmailProvider, authResponse.getData().getName());
+                        SharedPreferanse.write(SharedPreferanse.IMAGEProvider, authResponse.getData().getPhoto());
+                        SharedPreferanse.write(SharedPreferanse.MOBILEProvider, authResponse.getData().getPhone());
                         SharedPreferanse.write(SharedPreferanse.active, authResponse.getData().getActive());
-                        SharedPreferanse.write(SharedPreferanse.TOKEN, authResponse.getData().getToken());
-                        LoadFragment();
+                        SharedPreferanse.write(SharedPreferanse.WorkId, authResponse.getData().getActive());
+                        SharedPreferanse.write(SharedPreferanse.TOKENProvider, authResponse.getData().getToken());
+                        LoadFragmentProvider();
 
                     } else {
                         Functions.getInstanse().hideDialog();
-
                         Functions.getInstanse().diaLog(LoginActivity.this, "فشلت عملية تسجيل الدخول", authResponse.getMessage(), "موافق");
                         Log.e("sdsdsdsd", "1111");
                         Toast.makeText(LoginActivity.this, "Error", Toast.LENGTH_SHORT).show();
@@ -133,24 +148,24 @@ public class LoginActivity extends AppCompatActivity {
         } else {
 
             Functions.getInstanse().showDialog(LoginActivity.this, "Please Waite");
-            loginViewModel.loginFunctionAsCustomer();
             Log.e("ex1", "3");
-            loginViewModel.authResponseMutableLiveData.observe(this, new Observer<AuthResponse>() {
+            addDataCustomer();
+            loginViewModel.authResponseMutableLiveDataCustomer.observe(this, new LiveDataModel.Observer<AuthResponseCustomer>() {
                 @Override
-                public void onChanged(AuthResponse authResponse) {
+                public void onChanged(AuthResponseCustomer authResponse) {
                     Log.e("ex1", "2");
 
                     if (authResponse.isStatus()) {
                         Functions.getInstanse().hideDialog();
                         Log.e("ex1", "00");
                         Toast.makeText(LoginActivity.this, "Done", Toast.LENGTH_SHORT).show();
-                        SharedPreferanse.write(SharedPreferanse.ID, authResponse.getData().getId() + "");
-                        SharedPreferanse.write(SharedPreferanse.EMAIL, authResponse.getData().getName());
-                        SharedPreferanse.write(SharedPreferanse.USERNAME, authResponse.getData().getEmail());
-                        SharedPreferanse.write(SharedPreferanse.IMAGE, authResponse.getData().getPhoto());
-                        SharedPreferanse.write(SharedPreferanse.MOBILE, authResponse.getData().getPhone());
+                        SharedPreferanse.write(SharedPreferanse.IDCustomer, authResponse.getData().getId() + "");
+                        SharedPreferanse.write(SharedPreferanse.USERNAMECustomer, authResponse.getData().getEmail());
+                        SharedPreferanse.write(SharedPreferanse.EmailCustomer, authResponse.getData().getName());
+                        SharedPreferanse.write(SharedPreferanse.IMAGECustomer, authResponse.getData().getPhoto());
+                        SharedPreferanse.write(SharedPreferanse.MOBILECustomer, authResponse.getData().getPhone());
                         SharedPreferanse.write(SharedPreferanse.active, authResponse.getData().getActive());
-                        SharedPreferanse.write(SharedPreferanse.TOKEN, authResponse.getData().getToken());
+                        SharedPreferanse.write(SharedPreferanse.TOKENCustomer, authResponse.getData().getToken());
                         LoadFragment();
 
                     } else {
@@ -169,7 +184,18 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
-    public void addData(){
+
+    public void addDataCustomer() {
+        String email = activityLoginBinding.editEmail.getText().toString();
+        String pass = activityLoginBinding.editPassword.getText().toString();
+        loginViewModel.loginFunctionAsCustomer(email, pass);
+
+    }
+
+    public void addDataServiceProvider() {
+        String email = activityLoginBinding.editEmail.getText().toString();
+        String pass = activityLoginBinding.editPassword.getText().toString();
+        loginViewModel.loginFunctionServiceProvider(email, pass);
 
     }
 

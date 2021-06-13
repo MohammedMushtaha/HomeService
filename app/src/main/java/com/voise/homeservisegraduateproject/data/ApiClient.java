@@ -42,7 +42,6 @@ class ApiClient {
 
         httpClient.addInterceptor(logging);
 
-        System.out.println("Log TOKEN " + SharedPreferanse.read(SharedPreferanse.TOKEN, ""));
         httpClient.addInterceptor(new Interceptor() {
                                       @Override
                                       public Response intercept(@NonNull Chain chain) throws IOException {

@@ -3,7 +3,7 @@ package com.voise.homeservisegraduateproject.bojo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class AuthResponse {
+public class AuthResponseCustomer {
     @SerializedName("code")
     @Expose
     private int code;

@@ -50,40 +50,81 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp"
                     android:layout_weight="1.5"
+                    android:layoutDirection="locale"
                     android:orientation="horizontal"
                     android:weightSum="2">
 
-                    <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                    <LinearLayout
                         android:id="@+id/Service_provider"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="@string/Service_provider"
-                        android:textColor="@color/colorDark"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
+                        android:orientation="vertical">
 
-                    <com.voise.homeservisegraduateproject.customfonts.MyTextView
+
+                        <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/Service_provider"
+                            android:textColor="@color/colorDark"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:id="@+id/lineService"
+                            android:layout_width="20dp"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="6dp"
+                            android:background="@color/colorDark">
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
                         android:id="@+id/Customer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="@string/Customer"
-                        android:textColor="@color/colorDark"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
+                        android:orientation="vertical">
 
+
+                        <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/Customer"
+                            android:textColor="@color/colorDark"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:id="@+id/lineCustomer"
+                            android:layout_width="20dp"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="6dp"
+                            android:background="@color/colorDark"
+                            android:visibility="gone">
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
                 </LinearLayout>
 
                 <com.voise.homeservisegraduateproject.customfonts.MyEditText
-                    android:id="@+id/E_edit_name"
+                    android:id="@+id/edit_name1"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginBottom="10dp"
@@ -96,7 +137,7 @@
                     android:textSize="14sp" />
 
                 <com.voise.homeservisegraduateproject.customfonts.MyEditText
-                    android:id="@+id/E_edit_email"
+                    android:id="@+id/edit_email1"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginBottom="10dp"
@@ -145,7 +186,7 @@
                     </LinearLayout>
 
                     <com.voise.homeservisegraduateproject.customfonts.MyEditText
-                        android:id="@+id/E_edit_phone"
+                        android:id="@+id/edit_phone1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -159,7 +200,7 @@
                 </LinearLayout>
 
                 <com.marlonmafra.android.widget.EditTextPassword
-                    android:id="@+id/E_edit_password"
+                    android:id="@+id/edit_password1"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_gravity="center"
@@ -188,7 +229,8 @@
                     android:hint="@string/Select_Service"
                     android:layoutDirection="locale"
                     android:padding="10dp"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:visibility="visible" />
 
                 <LinearLayout
                     android:id="@+id/da"

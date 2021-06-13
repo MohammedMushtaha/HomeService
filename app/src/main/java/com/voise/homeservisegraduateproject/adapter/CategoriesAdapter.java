@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import com.voise.homeservisegraduateproject.R;
 import com.voise.homeservisegraduateproject.bojo.CategoryData;
+import com.voise.homeservisegraduateproject.bojo.DataWork;
 import com.voise.homeservisegraduateproject.interfaces.ItemClickLisener;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ import java.util.List;
 
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.PostViewHolder> {
-    private List<CategoryData> moviesList = new ArrayList<>();
+    private List<DataWork> dataWorks = new ArrayList<>();
     private Activity activity;
 
     @NonNull
@@ -33,14 +34,14 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Po
 
     @Override
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
-        final CategoryData movie = moviesList.get(position);
+        final DataWork movie = dataWorks.get(position);
 
-        holder.text_item.setText(movie.getTitle());
+        holder.text_item.setText(movie.getName());
 
 //        Picasso.with(activity).load(movie.getImage()).into(holder.image_item);
 
         Picasso.with(activity)
-                .load(moviesList.get(position).getImage())
+                .load(dataWorks.get(position).getIcon())
                 .centerCrop()
                 .resize(200, 200)
                 .placeholder(R.drawable.ic_electricity_logo).into(holder.image_item);
@@ -57,11 +58,11 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Po
 
     @Override
     public int getItemCount() {
-        return moviesList.size();
+        return dataWorks.size();
     }
 
-    public void setList(Activity activity, List<CategoryData> moviesList) {
-        this.moviesList = moviesList;
+    public void setList(Activity activity, List<DataWork> moviesList) {
+        this.dataWorks = moviesList;
         this.activity = activity;
 
         notifyDataSetChanged();

@@ -1,32 +1,51 @@
 package com.voise.homeservisegraduateproject.data;
 
 
-import com.voise.homeservisegraduateproject.bojo.AuthResponse;
-
-import java.util.Map;
+import com.voise.homeservisegraduateproject.bojo.AllWorkDataResponse;
+import com.voise.homeservisegraduateproject.bojo.AuthResponseCustomer;
+import com.voise.homeservisegraduateproject.bojo.AuthResponseProvider;
 
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 public interface DataInterface {
 
     @FormUrlEncoded
     @POST("auth/login/user")
-    public Call<AuthResponse> loginAsCustomer(
+    public Call<AuthResponseCustomer> loginAsCustomer(
             @Field("email") String email,
             @Field("password") String password);
 
     @FormUrlEncoded
     @POST("auth/login/delivery")
-    public Call<AuthResponse> loginAsServiceProvider(
+    public Call<AuthResponseProvider> loginAsServiceProvider(
             @Field("email") String email,
             @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("auth/register/user")
+    public Call<AuthResponseCustomer> RegisterCustomer(
+            @Field("name") String name,
+            @Field("email") String email,
+            @Field("password") String phone,
+            @Field("phone") String message);
+
+    @FormUrlEncoded
+    @POST("auth/register/delivery")
+    public Call<AuthResponseProvider> RegisterProvider(
+            @Field("name") String name,
+            @Field("email") String email,
+            @Field("password") String phone,
+            @Field("phone") String message,
+            @Field("work_id") int work_id);
+
+    @GET("all/works")
+    public Call<AllWorkDataResponse> getAllWorkResponse();
+
+
 
 //    @FormUrlEncoded
 //    @POST("rate")
