@@ -1,10 +1,21 @@
 package com.voise.homeservisegraduateproject.data;
 
 
+import android.net.Uri;
+
+import com.voise.homeservisegraduateproject.bojo.AddOrderResponse;
 import com.voise.homeservisegraduateproject.bojo.AllWorkDataResponse;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseCustomer;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseProvider;
 
+import java.io.File;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 
 
@@ -53,6 +64,34 @@ public class FunctionServer {
         return dataInterface.getAllWorkResponse();
     }
 
+    public Call<AddOrderResponse> AddOrder(int work_id, String details, String details_address, List<Uri> photo, String phone, long latitude, long longitude) {
+
+        RequestBody work_idB = RequestBody.create(work_id + "", MediaType.parse("text/plain"));
+        RequestBody detailsB = RequestBody.create(details + "", MediaType.parse("text/plain"));
+        RequestBody details_addressB = RequestBody.create(details_address + "", MediaType.parse("text/plain"));
+        RequestBody phoneB = RequestBody.create(phone + "", MediaType.parse("text/plain"));
+        RequestBody latB = RequestBody.create(latitude + "", MediaType.parse("text/plain"));
+        RequestBody longB = RequestBody.create(longitude + "", MediaType.parse("text/plain"));
+
+        HashMap<String, RequestBody> map = new HashMap<>();
+        map.put("work_id", work_idB);
+        map.put("details", detailsB);
+        map.put("details_address", details_addressB);
+        map.put("phone", phoneB);
+        map.put("lat", latB);
+        map.put("long", longB);
+
+        File fileSubImg;
+        MultipartBody.Part[] surveyImagesParts = new MultipartBody.Part[photo.size()];
+        for (int index = 0; index < photo.size(); index++) {
+            fileSubImg = new File(photo.get(index).getPath());
+            RequestBody surveyBody = RequestBody.create(fileSubImg, MediaType.parse("image/*"));
+            surveyImagesParts[index] = MultipartBody.Part.createFormData("photos[]", fileSubImg.getName(), surveyBody);
+        }
+
+
+        return dataInterface.AddOrder2(map, surveyImagesParts);
+    }
 //
 //    public Call<ResponseStatus> Rating(double rate, String comment, int service_id) {
 //        return dataInterface.Rating(rate, comment, service_id);

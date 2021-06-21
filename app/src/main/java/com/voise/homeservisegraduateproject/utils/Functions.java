@@ -36,7 +36,7 @@ public class Functions {
         hud = KProgressHUD.create(context)
                 .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
                 .setLabel(text)
-                .setDetailsLabel("q")
+                .setDetailsLabel("")
                 .setCancellable(true)
                 .setAnimationSpeed(2)
                 .setDimAmount(0.5f)

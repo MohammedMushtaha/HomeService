@@ -22,7 +22,7 @@ public class SharedPreferanse {
     public static String IDProvider = "IDProvider";
 
     public static String TOKENProvider = "TOKENProvider";
-    public static String TOKENCustomer = "TOKENCustomer";
+    public static String TOKEN = "TOKEN";
 
     public static String USERNAMEProvider = "USERNAMEProvider";
     public static String USERNAMECustomer = "USERNAMECustomer";
@@ -42,7 +42,8 @@ public class SharedPreferanse {
     public static String LoginChoice = "LoginChoice";
     public static String RegisterChoice = "RegisterChoice";
 
-    public static String Note = "Note";
+    public static String NameCruft = "NameCruft";
+    public static String IDCruft = "IDCruft";
     public static String IMAGE_CATEGORIES = "IMAGE_CATEGORIES";
     public static String TITLE_CATEGORIES = "TITLE_CATEGORIES";
     public static String ID_CATEGORIES = "ID_CATEGORIES";

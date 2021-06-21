@@ -1,15 +1,24 @@
 package com.voise.homeservisegraduateproject.data;
 
 
+import com.voise.homeservisegraduateproject.bojo.AddOrderResponse;
 import com.voise.homeservisegraduateproject.bojo.AllWorkDataResponse;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseCustomer;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseProvider;
 
+import java.util.Map;
+
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
+import retrofit2.http.PartMap;
 
 public interface DataInterface {
 
@@ -46,6 +55,14 @@ public interface DataInterface {
     public Call<AllWorkDataResponse> getAllWorkResponse();
 
 
+    @POST("create/order")
+    public Call<AddOrderResponse> AddOrder(@Body Map<String,Object> params);
+
+    @Multipart
+    @POST("create/order")
+    public Call<AddOrderResponse> AddOrder2(
+            @PartMap() Map<String, RequestBody> partMap,
+            @Part MultipartBody.Part[] images);
 
 //    @FormUrlEncoded
 //    @POST("rate")

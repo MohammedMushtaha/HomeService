@@ -12,6 +12,8 @@
     <string name="get_start_now">ادخل الان  </string>
     <string name="Service_provider">مقدم خدمة</string>
     <string name="Customer">زبون</string>
+    <string name="Next">التالي</string>
+    <string name="AddOrder">اضف العرض</string>
     <string name="Full_Name">الاسم كامل</string>
     <string name="Phone">رقم الهاتف</string>
     <string name="Have_Account">لديك حساب جديد ؟</string>
@@ -38,6 +40,10 @@
     <string name="New_Password">كلمة المرور الجديدة</string>
     <string name="Current_Password">كلمة المرور القديمة</string>
     <string name="Change_Password">تغيير كلمة المرور </string>
+    <string name="image_must">الصورة يجب ان تكون اقل من 5 ميجا </string>
+    <string name="More_Details">مزيد من التفاصيل عن مشكلة الصيانة ....</string>
+    <string name="More_DetailsLocation">مزيد من التفاصيلعن المكان ....</string>
+
     <string name="Type_Your_message_here">أكتب رسالتك هنا</string>
 
 </resources>

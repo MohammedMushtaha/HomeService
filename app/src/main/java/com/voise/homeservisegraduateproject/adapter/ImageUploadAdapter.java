@@ -1,21 +1,23 @@
 package com.voise.homeservisegraduateproject.adapter;
 
-
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 import com.voise.homeservisegraduateproject.R;
 import com.voise.homeservisegraduateproject.SharedPreferanse.SharedPreferanse;
-import com.voise.homeservisegraduateproject.bojo.CategoryData;
 import com.voise.homeservisegraduateproject.bojo.DataWork;
 import com.voise.homeservisegraduateproject.interfaces.ItemClickLisener;
 import com.voise.homeservisegraduateproject.ui.ui.home.AddOrderProblemActivity;
@@ -23,42 +25,30 @@ import com.voise.homeservisegraduateproject.ui.ui.home.AddOrderProblemActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.PostViewHolder> {
-    private List<DataWork> dataWorks = new ArrayList<>();
-     Activity activity;
+public class ImageUploadAdapter  extends RecyclerView.Adapter<ImageUploadAdapter.PostViewHolder> {
+    private ArrayList<Uri> dataWorks = new ArrayList<>();
+    Activity activity;
 
     @NonNull
     @Override
     public PostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new PostViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_category, parent, false));
+        return new PostViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_imageupload, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
-        final DataWork movie = dataWorks.get(position);
+        final Uri movie = dataWorks.get(position);
 
-        holder.text_item.setText(movie.getName());
 
 //        Picasso.with(activity).load(movie.getImage()).into(holder.image_item);
 
         Picasso.with(activity)
-                .load(dataWorks.get(position).getIcon())
+                .load(dataWorks.get(position))
                 .centerCrop()
                 .resize(200, 200)
                 .placeholder(R.drawable.ic_electricity_logo).into(holder.image_item);
 
-        holder.setItemClickListener(new ItemClickLisener() {
-            @Override
-            public void onClick(View view, int Position, boolean isLongClick) {
-                 SharedPreferanse.write(SharedPreferanse.NameCruft, movie.getName());
-                 SharedPreferanse.write(SharedPreferanse.IDCruft, movie.getId());
 
-                Intent i = new Intent(activity, AddOrderProblemActivity.class);
-                i.putExtra("data", movie);
-                activity.startActivity(i);
-            }
-        });
     }
 
     @Override
@@ -66,13 +56,13 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Po
         return dataWorks.size();
     }
 
-    public void setList(Activity activity, List<DataWork> moviesList) {
+    public void setList(Activity activity, ArrayList<Uri> moviesList) {
         this.dataWorks = moviesList;
         this.activity = activity;
         notifyDataSetChanged();
     }
 
-    public class PostViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener, View.OnClickListener {
+    public class PostViewHolder extends RecyclerView.ViewHolder  {
         private TextView text_item;
         private ImageView image_item;
         private ItemClickLisener itemClickLisener;
@@ -81,25 +71,25 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Po
             super(itemView);
             image_item = itemView.findViewById(R.id.image_item);
             text_item = itemView.findViewById(R.id.text_item);
-            itemView.setOnClickListener(this);
-            itemView.setOnLongClickListener(this);
+//            itemView.setOnClickListener(this);
+//            itemView.setOnLongClickListener(this);
         }
 
         public void setItemClickListener(ItemClickLisener itemClickLicener) {
             this.itemClickLisener = itemClickLicener;
         }
 
-        @Override
-        public void onClick(View v) {
-            itemClickLisener.onClick(v, getAdapterPosition(), false);
-
-        }
-
-        @Override
-        public boolean onLongClick(View v) {
-            itemClickLisener.onClick(v, getAdapterPosition(), true);
-            return true;
-        }
+//        @Override
+//        public void onClick(View v) {
+//            itemClickLisener.onClick(v, getAdapterPosition(), false);
+//
+//        }
+//
+//        @Override
+//        public boolean onLongClick(View v) {
+//            itemClickLisener.onClick(v, getAdapterPosition(), true);
+//            return true;
+//        }
     }
 }
 

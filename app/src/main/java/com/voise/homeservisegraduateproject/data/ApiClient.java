@@ -51,7 +51,7 @@ class ApiClient {
                                                   .header("Content-Type", "application/x-www-form-urlencoded")
                                                   .header("Accept", "application/json")
                                                   .header("Accept-Language", "ar")
-                                                  .header("Authorization", "")
+                                                  .header("Authorization", SharedPreferanse.read(SharedPreferanse.TOKEN, ""))
                                                   .method(original.method(), original.body())
                                                   .build();
 

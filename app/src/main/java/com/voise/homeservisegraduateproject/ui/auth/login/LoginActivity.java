@@ -124,7 +124,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (authResponse.isStatus()) {
                         Functions.getInstanse().hideDialog();
                         Log.e("ex1", "6");
-                        Toast.makeText(LoginActivity.this, "Done", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Donee", Toast.LENGTH_SHORT).show();
                         SharedPreferanse.write(SharedPreferanse.IDProvider, authResponse.getData().getId() + "");
                         SharedPreferanse.write(SharedPreferanse.USERNAMEProvider, authResponse.getData().getEmail());
                         SharedPreferanse.write(SharedPreferanse.EmailProvider, authResponse.getData().getName());
@@ -132,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferanse.write(SharedPreferanse.MOBILEProvider, authResponse.getData().getPhone());
                         SharedPreferanse.write(SharedPreferanse.active, authResponse.getData().getActive());
                         SharedPreferanse.write(SharedPreferanse.WorkId, authResponse.getData().getActive());
-                        SharedPreferanse.write(SharedPreferanse.TOKENProvider, authResponse.getData().getToken());
+                        SharedPreferanse.write(SharedPreferanse.TOKEN, "Bearer "+authResponse.getData().getToken());
                         LoadFragmentProvider();
 
                     } else {
@@ -158,14 +158,14 @@ public class LoginActivity extends AppCompatActivity {
                     if (authResponse.isStatus()) {
                         Functions.getInstanse().hideDialog();
                         Log.e("ex1", "00");
-                        Toast.makeText(LoginActivity.this, "Done", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Donee", Toast.LENGTH_SHORT).show();
                         SharedPreferanse.write(SharedPreferanse.IDCustomer, authResponse.getData().getId() + "");
                         SharedPreferanse.write(SharedPreferanse.USERNAMECustomer, authResponse.getData().getEmail());
                         SharedPreferanse.write(SharedPreferanse.EmailCustomer, authResponse.getData().getName());
                         SharedPreferanse.write(SharedPreferanse.IMAGECustomer, authResponse.getData().getPhoto());
                         SharedPreferanse.write(SharedPreferanse.MOBILECustomer, authResponse.getData().getPhone());
                         SharedPreferanse.write(SharedPreferanse.active, authResponse.getData().getActive());
-                        SharedPreferanse.write(SharedPreferanse.TOKENCustomer, authResponse.getData().getToken());
+                        SharedPreferanse.write(SharedPreferanse.TOKEN, "Bearer "+authResponse.getData().getToken());
                         LoadFragment();
 
                     } else {

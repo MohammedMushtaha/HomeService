@@ -12,6 +12,8 @@
     <string name="Full_Name">FullName</string>
     <string name="Service_provider">Service provider</string>
     <string name="Customer">Customer</string>
+    <string name="Next">Next</string>
+    <string name="AddOrder">Add Order</string>
     <string name="Phone">Phone</string>
     <string name="Have_Account">Have Account</string>
     <string name="Terms_Conditions">Terms Conditions</string>
@@ -37,6 +39,9 @@
     <string name="New_Password">New Password</string>
     <string name="Current_Password">Current Password</string>
     <string name="Change_Password"> Change Password </string>
+    <string name="image_must"> image must be no more than 2 MB Max 5 Image</string>
+    <string name="More_Details"> More Details About Problem …...</string>
+    <string name="More_DetailsLocation"> More Details About Location …...</string>
 
     <string name="Type_Your_message_here">Type Your message here ....</string>
     <!-- TODO: Remove or change this placeholder text -->

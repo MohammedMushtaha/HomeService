@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/edit_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    tools:context=".ui.ui.home.AddOrderProblemLocation">
+
+
+                    <include
+                        android:id="@+id/toolbar"
+                        layout="@layout/toolbar">
+
+                    </include>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/toolbar"
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/layoutLinear"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/map"
+                            android:layout_width="match_parent"
+                            android:layout_height="220dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:background="@drawable/shape_map"
+                            android:padding="2dp">
+
+                            <fragment
+
+                                android:name="com.google.android.gms.maps.SupportMapFragment"
+                                android:layout_width="match_parent"
+                                android:layout_height="220dp"
+                                android:layout_margin="1dp"
+                                android:background="@drawable/shape_map" />
+
+                            <RelativeLayout
+                                android:id="@+id/map3"
+                                android:layout_width="match_parent"
+                                android:layout_height="220dp"
+                                android:layout_margin="1dp"
+
+                                >
+
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                        <com.voise.homeservisegraduateproject.customfonts.MyEditText
+                            android:id="@+id/inputTextLocation"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:background="@drawable/shape_selector"
+                            android:gravity="top"
+                            android:hint="@string/More_DetailsLocation"
+                            android:inputType="textMultiLine"
+                            android:padding="10dp"
+                            android:textSize="13sp" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="15dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1.1"
+                            android:background="@drawable/shape_selector"
+                            android:layoutDirection="locale"
+                            android:weightSum="2">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="0.85"
+                                android:orientation="horizontal"
+                                android:padding="5dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_arabic">
+
+                                </ImageView>
+
+                                <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:gravity="center"
+                                    android:text="+966"
+                                    android:textSize="14sp" />
+
+                            </LinearLayout>
+
+                            <com.voise.homeservisegraduateproject.customfonts.MyEditText
+                                android:id="@+id/edit_phone1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="15dp"
+                                android:layout_weight="1.15"
+                                android:background="@drawable/shape_phone"
+                                android:hint="@string/Phone"
+                                android:inputType="phone"
+                                android:padding="5dp"
+                                android:textColor="@color/colorDark"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <com.voise.homeservisegraduateproject.customfonts.MyButton
+                        android:id="@+id/btnAddOrder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/layoutLinear"
+                        android:layout_margin="30dp"
+                        android:background="@drawable/btn_next"
+                        android:text="@string/AddOrder"
+                        android:textColor="@color/white" />
+
+
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+</layout>

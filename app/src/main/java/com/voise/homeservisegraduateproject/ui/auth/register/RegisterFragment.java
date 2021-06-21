@@ -140,14 +140,14 @@ public class RegisterFragment extends Fragment {
 
                     if (authResponse.isStatus()) {
                         Functions.getInstanse().hideDialog();
-                         Toast.makeText(getActivity(), "Done", Toast.LENGTH_SHORT).show();
+                         Toast.makeText(getActivity(), "Donee", Toast.LENGTH_SHORT).show();
                         SharedPreferanse.write(SharedPreferanse.IDCustomer, authResponse.getData().getId() + "");
                         SharedPreferanse.write(SharedPreferanse.USERNAMECustomer, authResponse.getData().getEmail());
                         SharedPreferanse.write(SharedPreferanse.EmailCustomer, authResponse.getData().getName());
                         SharedPreferanse.write(SharedPreferanse.IMAGECustomer, authResponse.getData().getPhoto());
                         SharedPreferanse.write(SharedPreferanse.MOBILECustomer, authResponse.getData().getPhone());
                         SharedPreferanse.write(SharedPreferanse.active, authResponse.getData().getActive());
-                        SharedPreferanse.write(SharedPreferanse.TOKENCustomer, authResponse.getData().getToken());
+                        SharedPreferanse.write(SharedPreferanse.TOKEN, "Bearer "+authResponse.getData().getToken());
                         LoadFragment();
 
                     } else {
@@ -160,7 +160,9 @@ public class RegisterFragment extends Fragment {
 
                 }
             });
-        } else {
+        }
+
+        else {
 
             Functions.getInstanse().showDialog(getActivity(), "Please Waite");
             Log.e("ex1", "3");
@@ -181,7 +183,7 @@ public class RegisterFragment extends Fragment {
                         SharedPreferanse.write(SharedPreferanse.MOBILEProvider, authResponse.getData().getPhone());
                         SharedPreferanse.write(SharedPreferanse.active, authResponse.getData().getActive());
                         SharedPreferanse.write(SharedPreferanse.WorkId, authResponse.getData().getActive());
-                        SharedPreferanse.write(SharedPreferanse.TOKENProvider, authResponse.getData().getToken());
+                        SharedPreferanse.write(SharedPreferanse.TOKEN, "Bearer "+authResponse.getData().getToken());
                         LoadFragmentProvider();
 
                     } else {
