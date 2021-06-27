@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.voise.homeservisegraduateproject.ui.ui.home.HomeFragment"
+        android:name="com.voise.homeservisegraduateproject.ui.uiCustomerUser.home.HomeFragmentCustomer"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home_customer" />
 
     <fragment
         android:id="@+id/navigation_order"
-        android:name="com.voise.homeservisegraduateproject.ui.ui.moreApp.MoreFragment"
+        android:name="com.voise.homeservisegraduateproject.ui.uiCustomerUser.moreApp.MoreFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_more" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.voise.homeservisegraduateproject.ui.ui.userSetting.UserSettingFragment"
+        android:name="com.voise.homeservisegraduateproject.ui.uiCustomerUser.userSetting.UserSettingFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_setting" />
 
     <fragment
         android:id="@+id/navigation_more"
-        android:name="com.voise.homeservisegraduateproject.ui.ui.order.PlaceholderFragment"
+        android:name="com.voise.homeservisegraduateproject.ui.uiCustomerUser.order.PlaceholderFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_setting" />
 </navigation>

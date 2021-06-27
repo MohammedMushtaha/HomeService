@@ -14,6 +14,9 @@
     <string name="Customer">Customer</string>
     <string name="Next">Next</string>
     <string name="AddOrder">Add Order</string>
+    <string name="serviceType"> Service Type </string>
+    <string name="location">location </string>
+    <string name="OrderId">OrderId # </string>
 
     <string name="Full_Name">FullName</string>
     <string name="Phone">Phone</string>

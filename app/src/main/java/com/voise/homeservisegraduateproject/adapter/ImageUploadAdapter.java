@@ -1,29 +1,21 @@
 package com.voise.homeservisegraduateproject.adapter;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 import com.voise.homeservisegraduateproject.R;
-import com.voise.homeservisegraduateproject.SharedPreferanse.SharedPreferanse;
-import com.voise.homeservisegraduateproject.bojo.DataWork;
 import com.voise.homeservisegraduateproject.interfaces.ItemClickLisener;
-import com.voise.homeservisegraduateproject.ui.ui.home.AddOrderProblemActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ImageUploadAdapter  extends RecyclerView.Adapter<ImageUploadAdapter.PostViewHolder> {
     private ArrayList<Uri> dataWorks = new ArrayList<>();

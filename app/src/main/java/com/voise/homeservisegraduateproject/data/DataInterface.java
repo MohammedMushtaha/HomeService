@@ -1,10 +1,14 @@
 package com.voise.homeservisegraduateproject.data;
 
 
+import com.voise.homeservisegraduateproject.bojo.AcceptUserResponse;
 import com.voise.homeservisegraduateproject.bojo.AddOrderResponse;
+import com.voise.homeservisegraduateproject.bojo.AllOfferResponse;
 import com.voise.homeservisegraduateproject.bojo.AllWorkDataResponse;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseCustomer;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseProvider;
+import com.voise.homeservisegraduateproject.bojo.PendingOrderResponse;
+import com.voise.homeservisegraduateproject.bojo.UnCompletedOrderResponse;
 
 import java.util.Map;
 
@@ -56,7 +60,7 @@ public interface DataInterface {
 
 
     @POST("create/order")
-    public Call<AddOrderResponse> AddOrder(@Body Map<String,Object> params);
+    public Call<AddOrderResponse> AddOrder(@Body Map<String, Object> params);
 
     @Multipart
     @POST("create/order")
@@ -64,6 +68,25 @@ public interface DataInterface {
             @PartMap() Map<String, RequestBody> partMap,
             @Part MultipartBody.Part[] images);
 
+    @GET("order/un/complete/user")
+    public Call<PendingOrderResponse> getAllPendingRequest();
+
+    @GET("order/pending/user")
+    public Call<UnCompletedOrderResponse> getAllUnCompleteRequest();
+
+    @FormUrlEncoded
+    @POST("get/all/offer")
+    public Call<AllOfferResponse> getAllOfferUserRequest(
+            @Field("order_id") int id);
+
+    @FormUrlEncoded
+    @POST("accept/offer")
+    public Call<AcceptUserResponse> AcceptOfferUserRequest(
+            @Field("delivery_id") String delivery_id,
+            @Field("order_id") String order_id);
+
+//    @GET("order/pending/user")
+//    public Call<PendingOrderResponse> getAllUnCompleteRequest();
 //    @FormUrlEncoded
 //    @POST("rate")
 //    public Call<ResponseStatus> Rating(

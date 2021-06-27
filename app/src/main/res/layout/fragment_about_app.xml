@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:id="@+id/edit_frame"
     android:background="@color/white"
-    tools:context=".ui.ui.moreApp.AboutApp.AboutAppFragment">
+    tools:context=".ui.uiCustomerUser.moreApp.AboutApp.AboutAppFragment">
 
     <include
         android:id="@+id/toolbar"

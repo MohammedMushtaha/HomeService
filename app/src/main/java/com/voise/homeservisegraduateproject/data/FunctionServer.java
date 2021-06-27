@@ -3,10 +3,14 @@ package com.voise.homeservisegraduateproject.data;
 
 import android.net.Uri;
 
+import com.voise.homeservisegraduateproject.bojo.AcceptUserResponse;
 import com.voise.homeservisegraduateproject.bojo.AddOrderResponse;
+import com.voise.homeservisegraduateproject.bojo.AllOfferResponse;
 import com.voise.homeservisegraduateproject.bojo.AllWorkDataResponse;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseCustomer;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseProvider;
+import com.voise.homeservisegraduateproject.bojo.PendingOrderResponse;
+import com.voise.homeservisegraduateproject.bojo.UnCompletedOrderResponse;
 
 import java.io.File;
 import java.util.HashMap;
@@ -62,6 +66,20 @@ public class FunctionServer {
 
     public Call<AllWorkDataResponse> getAllWorkResponse() {
         return dataInterface.getAllWorkResponse();
+    }
+
+    public Call<PendingOrderResponse> getAllPendingRequest() {
+        return dataInterface.getAllPendingRequest();
+    }
+    public Call<UnCompletedOrderResponse> getAllUnCompleteRequest() {
+        return dataInterface.getAllUnCompleteRequest();
+    }
+    public Call<AllOfferResponse> getAllOfferUserRequest(int order_id) {
+        return dataInterface.getAllOfferUserRequest(order_id);
+    }
+
+    public Call<AcceptUserResponse> AcceptOfferUserRequest(String delivery_id, String order_id ) {
+        return dataInterface.AcceptOfferUserRequest(delivery_id,order_id);
     }
 
     public Call<AddOrderResponse> AddOrder(int work_id, String details, String details_address, List<Uri> photo, String phone, long latitude, long longitude) {

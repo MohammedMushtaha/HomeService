@@ -6,10 +6,10 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.voise.homeservisegraduateproject.R;
-import com.voise.homeservisegraduateproject.ui.ui.home.HomeFragment;
-import com.voise.homeservisegraduateproject.ui.ui.moreApp.MoreFragment;
-import com.voise.homeservisegraduateproject.ui.ui.order.PlaceholderFragment;
-import com.voise.homeservisegraduateproject.ui.ui.userSetting.UserSettingFragment;
+import com.voise.homeservisegraduateproject.ui.uiCustomerUser.home.HomeFragmentCustomer;
+import com.voise.homeservisegraduateproject.ui.uiCustomerUser.moreApp.MoreFragment;
+import com.voise.homeservisegraduateproject.ui.uiCustomerUser.order.PlaceholderFragment;
+import com.voise.homeservisegraduateproject.ui.uiCustomerUser.userSetting.UserSettingFragment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 //        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
 ////        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 //        NavigationUI.setupWithNavController(navView, navController);
-        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new HomeFragment(getApplication())).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new HomeFragmentCustomer(getApplication())).commit();
 
         navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
-                         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new HomeFragment(getApplication())).commit();
+                         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new HomeFragmentCustomer(getApplication())).commit();
 
                         return true;
                     case R.id.navigation_order:

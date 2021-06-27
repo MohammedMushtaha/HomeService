@@ -13,6 +13,9 @@
     <string name="Service_provider">مقدم خدمة</string>
     <string name="Customer">زبون</string>
     <string name="Next">التالي</string>
+    <string name="serviceType"> نوع الخدمة :  </string>
+    <string name="location">المكان </string>
+    <string name="OrderId">رقم الطلب  # </string>
     <string name="AddOrder">اضف العرض</string>
     <string name="Full_Name">الاسم كامل</string>
     <string name="Phone">رقم الهاتف</string>

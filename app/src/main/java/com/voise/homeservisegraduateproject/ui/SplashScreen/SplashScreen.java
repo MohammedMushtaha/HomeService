@@ -10,7 +10,7 @@ import com.voise.homeservisegraduateproject.R;
 import com.voise.homeservisegraduateproject.SharedPreferanse.SharedPreferanse;
 import com.voise.homeservisegraduateproject.ui.MainActivity;
 import com.voise.homeservisegraduateproject.ui.auth.login.LoginActivity;
-import com.voise.homeservisegraduateproject.ui.ui.MainActivity2;
+import com.voise.homeservisegraduateproject.ui.uiCustomerUser.MainActivity2;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -39,7 +39,7 @@ public class SplashScreen extends AppCompatActivity {
                     finish();
                 }
             }
-        },2000);
+        },3000);
     }
 }
 

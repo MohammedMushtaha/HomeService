@@ -15,10 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import com.voise.homeservisegraduateproject.R;
 import com.voise.homeservisegraduateproject.SharedPreferanse.SharedPreferanse;
-import com.voise.homeservisegraduateproject.bojo.CategoryData;
 import com.voise.homeservisegraduateproject.bojo.DataWork;
 import com.voise.homeservisegraduateproject.interfaces.ItemClickLisener;
-import com.voise.homeservisegraduateproject.ui.ui.home.AddOrderProblemActivity;
+import com.voise.homeservisegraduateproject.ui.uiCustomerUser.home.AddOrderProblemActivity;
 
 import java.util.ArrayList;
 import java.util.List;

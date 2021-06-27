@@ -24,7 +24,7 @@ import com.voise.homeservisegraduateproject.data.LiveDataModel;
 import com.voise.homeservisegraduateproject.databinding.FragmentRegisterBinding;
 import com.voise.homeservisegraduateproject.ui.MainActivity;
 import com.voise.homeservisegraduateproject.ui.auth.login.LoginActivity;
-import com.voise.homeservisegraduateproject.ui.ui.MainActivity2;
+import com.voise.homeservisegraduateproject.ui.uiCustomerUser.MainActivity2;
 import com.voise.homeservisegraduateproject.utils.Functions;
 
 import java.util.List;

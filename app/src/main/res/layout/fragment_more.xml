@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:id="@+id/edit_frame"
 
-        tools:context=".ui.ui.moreApp.MoreFragment">
+        tools:context=".ui.uiCustomerUser.moreApp.MoreFragment">
 
 
         <RelativeLayout

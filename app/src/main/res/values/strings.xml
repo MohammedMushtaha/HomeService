@@ -13,6 +13,10 @@
     <string name="Service_provider">Service provider</string>
     <string name="Customer">Customer</string>
     <string name="Next">Next</string>
+    <string name="serviceType"> Service Type </string>
+    <string name="location">location </string>
+    <string name="OrderId">OrderId # </string>
+
     <string name="AddOrder">Add Order</string>
     <string name="Phone">Phone</string>
     <string name="Have_Account">Have Account</string>
@@ -45,6 +49,5 @@
 
     <string name="Type_Your_message_here">Type Your message here ....</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -44,7 +44,8 @@ public class SharedPreferanse {
 
     public static String NameCruft = "NameCruft";
     public static String IDCruft = "IDCruft";
-    public static String IMAGE_CATEGORIES = "IMAGE_CATEGORIES";
+
+    public static String Type_Complete_Pending_UnComplete = "IMAGE_CATEGORIES";
     public static String TITLE_CATEGORIES = "TITLE_CATEGORIES";
     public static String ID_CATEGORIES = "ID_CATEGORIES";
     public static final String SP_USER = "user";

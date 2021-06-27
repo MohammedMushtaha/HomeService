@@ -18,7 +18,7 @@ import com.voise.homeservisegraduateproject.data.LiveDataModel;
 import com.voise.homeservisegraduateproject.databinding.ActivityLoginBinding;
 import com.voise.homeservisegraduateproject.ui.MainActivity;
 import com.voise.homeservisegraduateproject.ui.auth.register.RegisterFragment;
-import com.voise.homeservisegraduateproject.ui.ui.MainActivity2;
+import com.voise.homeservisegraduateproject.ui.uiCustomerUser.MainActivity2;
 import com.voise.homeservisegraduateproject.utils.Functions;
 
 
