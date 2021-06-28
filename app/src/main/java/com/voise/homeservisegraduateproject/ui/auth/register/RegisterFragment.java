@@ -25,6 +25,7 @@ import com.voise.homeservisegraduateproject.databinding.FragmentRegisterBinding;
 import com.voise.homeservisegraduateproject.ui.MainActivity;
 import com.voise.homeservisegraduateproject.ui.auth.login.LoginActivity;
 import com.voise.homeservisegraduateproject.ui.uiCustomerUser.MainActivity2;
+import com.voise.homeservisegraduateproject.uiOfServiceProvider.ServiceProviderMainActivity;
 import com.voise.homeservisegraduateproject.utils.Functions;
 
 import java.util.List;
@@ -109,7 +110,7 @@ public class RegisterFragment extends Fragment {
         startActivity(i);
     }
     private void LoadFragmentProvider() {
-        Intent i = new Intent(getActivity(), MainActivity2.class);
+        Intent i = new Intent(getActivity(), ServiceProviderMainActivity.class);
         startActivity(i);
     }
     public void getAllWorkData() {

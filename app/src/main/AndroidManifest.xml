@@ -35,7 +35,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HomeServiseGraduateProject"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.SplashScreen.SuccesAddOrderActivity"></activity>
+        <activity android:name=".uiOfServiceProvider.ui.home_provider.DetailsOrderProvider.DetailsOrderServiceProvider"></activity>
+        <activity
+            android:name=".uiOfServiceProvider.ServiceProviderMainActivity"
+            android:label="@string/title_activity_service_provider_main" />
+        <activity android:name=".ui.SplashScreen.SuccesAddOrderActivity" />
         <activity android:name=".ui.uiCustomerUser.order.AcceptOfferToUser" />
         <activity android:name=".ui.uiCustomerUser.order.DetailsOrder.DetailsOrdertActivity" />
         <!--

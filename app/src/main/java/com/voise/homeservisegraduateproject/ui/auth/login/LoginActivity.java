@@ -19,6 +19,7 @@ import com.voise.homeservisegraduateproject.databinding.ActivityLoginBinding;
 import com.voise.homeservisegraduateproject.ui.MainActivity;
 import com.voise.homeservisegraduateproject.ui.auth.register.RegisterFragment;
 import com.voise.homeservisegraduateproject.ui.uiCustomerUser.MainActivity2;
+import com.voise.homeservisegraduateproject.uiOfServiceProvider.ServiceProviderMainActivity;
 import com.voise.homeservisegraduateproject.utils.Functions;
 
 
@@ -107,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(i);
     }
     private void LoadFragmentProvider() {
-        Intent i = new Intent(LoginActivity.this, MainActivity2.class);
+        Intent i = new Intent(LoginActivity.this, ServiceProviderMainActivity.class);
         startActivity(i);
     }
     public void LoginResponse() {

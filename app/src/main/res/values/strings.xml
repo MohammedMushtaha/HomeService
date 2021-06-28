@@ -48,6 +48,7 @@
     <string name="More_DetailsLocation"> More Details About Location …...</string>
 
     <string name="Type_Your_message_here">Type Your message here ....</string>
+    <string name="title_activity_service_provider_main">MainActivity</string>
     <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

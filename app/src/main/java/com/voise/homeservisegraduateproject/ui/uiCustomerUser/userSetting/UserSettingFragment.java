@@ -50,7 +50,7 @@ public class UserSettingFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         notificationsViewModel =
                 new ViewModelProvider(this).get(UserSettingFragmentViewModel.class);
-        view = inflater.inflate(R.layout.fragment_setting, container, false);
+        view = inflater.inflate(R.layout.fragment_setting_customer, container, false);
         init();
         onClick();
         return view;

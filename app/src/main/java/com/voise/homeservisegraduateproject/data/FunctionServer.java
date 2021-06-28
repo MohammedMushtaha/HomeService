@@ -9,6 +9,7 @@ import com.voise.homeservisegraduateproject.bojo.AllOfferResponse;
 import com.voise.homeservisegraduateproject.bojo.AllWorkDataResponse;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseCustomer;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseProvider;
+import com.voise.homeservisegraduateproject.bojo.HomeProviderResponse;
 import com.voise.homeservisegraduateproject.bojo.PendingOrderResponse;
 import com.voise.homeservisegraduateproject.bojo.UnCompletedOrderResponse;
 
@@ -80,6 +81,9 @@ public class FunctionServer {
 
     public Call<AcceptUserResponse> AcceptOfferUserRequest(String delivery_id, String order_id ) {
         return dataInterface.AcceptOfferUserRequest(delivery_id,order_id);
+    }
+    public Call<HomeProviderResponse> HomeProviderService(String orderBy ) {
+        return dataInterface.HomeProviderService(orderBy);
     }
 
     public Call<AddOrderResponse> AddOrder(int work_id, String details, String details_address, List<Uri> photo, String phone, long latitude, long longitude) {

@@ -17,7 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.voise.homeservisegraduateproject.R;
 //import com.voise.homeservisegraduateproject.databinding.FragmentMoreBinding;
-import com.voise.homeservisegraduateproject.databinding.FragmentMoreBinding;
+import com.voise.homeservisegraduateproject.databinding.FragmentMoreCustomerBinding;
 import com.voise.homeservisegraduateproject.ui.uiCustomerUser.moreApp.AboutApp.AboutAppFragment;
 import com.voise.homeservisegraduateproject.utils.Functions;
 
@@ -33,7 +33,7 @@ public class MoreFragment extends Fragment {
 
     private View bottomSheet1;
 
-    FragmentMoreBinding binding;
+    FragmentMoreCustomerBinding binding;
     private BottomSheetBehavior bottomSheetBehavior;
 
     View root;
@@ -43,7 +43,7 @@ public class MoreFragment extends Fragment {
         dashboardViewModel =
                 new ViewModelProvider(this).get(MoreViewModel.class);
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_more, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_more_customer, container, false);
         root = binding.getRoot();
         binding.setLifecycleOwner(getActivity());
         bottomSheet1 = root.findViewById(R.id.buttomSheet1);

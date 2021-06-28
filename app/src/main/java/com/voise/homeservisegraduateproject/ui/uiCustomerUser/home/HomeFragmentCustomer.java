@@ -70,10 +70,11 @@ public class HomeFragmentCustomer extends Fragment {
 
     public void loadData() {
 
-        modelsliders.add(new ImageModel_slider(R.drawable.a));
-        modelsliders.add(new ImageModel_slider(R.drawable.ac));
-        modelsliders.add(new ImageModel_slider(R.drawable.as));
-        modelsliders.add(new ImageModel_slider(R.drawable.az));
+        modelsliders.add(new ImageModel_slider(R.drawable.shape_slider_white));
+        modelsliders.add(new ImageModel_slider(R.drawable.shape_slider_white));
+        modelsliders.add(new ImageModel_slider(R.drawable.shape_slider_white));
+        modelsliders.add(new ImageModel_slider(R.drawable.shape_slider_white));
+
     }
 
 

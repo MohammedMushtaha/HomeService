@@ -37,7 +37,7 @@
 
 
             <com.voise.homeservisegraduateproject.customfonts.MyTextView
-                android:id="@+id/order_salary"
+                android:id="@+id/order_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -124,7 +124,7 @@
                         android:textStyle="bold" />
 
                     <com.voise.homeservisegraduateproject.customfonts.MyTextView
-                        android:id="@+id/order_name"
+                        android:id="@+id/serviceType"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -215,6 +215,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="vertical">
 
                 <com.voise.homeservisegraduateproject.customfonts.MyTextView
@@ -225,13 +226,21 @@
                     android:textColor="@color/black"
                     android:textSize="13sp" />
 
-                <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                <me.zhanghai.android.materialratingbar.MaterialRatingBar
 
-                    android:id="@+id/date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="25.02.2020"
-                    android:textSize="13sp" />
+                        android:id="@+id/rating"
+                    android:layout_width="120dp"
+                    android:layout_height="30dp"
+                    android:focusable="false"
+                    android:foregroundGravity="right"
+                    android:hapticFeedbackEnabled="false"
+                    android:numStars="5"
+                    android:padding="2dp"
+                    android:rating="3"
+                    android:stepSize="1"
+                    app:mrb_fillBackgroundStars="true"
+                    app:mrb_progressBackgroundTint="@color/colorSilver"
+                    app:mrb_progressTint="@color/purple_700" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
