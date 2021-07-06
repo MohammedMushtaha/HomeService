@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class OrderCompletedAdapter extends RecyclerView.Adapter<OrderCompletedAdapter.MyViewHolder> {
+public class PendingOrderAdapter extends RecyclerView.Adapter<PendingOrderAdapter.MyViewHolder> {
 
     private List<DataPendingOrderResponse> category_modelList= new ArrayList<>();
     private Activity activity;
@@ -83,6 +83,7 @@ public class OrderCompletedAdapter extends RecyclerView.Adapter<OrderCompletedAd
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         final DataPendingOrderResponse category_model = category_modelList.get(position);
+        SharedPreferanse.write2(SharedPreferanse.Position,position);
         holder.order_number.setText("# "+category_model.getId()+"");
         holder.order_date.setText(category_model.getCreatedAt());
         holder.order_cat.setText(category_model.getWork().getName());

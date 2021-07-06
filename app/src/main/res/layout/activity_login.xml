@@ -257,7 +257,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/shape_gradient_btn"
                             android:text="@string/btn_login"
-                            android:textColor="#fff"
+                            android:textColor="@color/white"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 

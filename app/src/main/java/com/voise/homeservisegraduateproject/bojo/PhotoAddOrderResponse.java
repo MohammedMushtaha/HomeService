@@ -3,7 +3,9 @@ package com.voise.homeservisegraduateproject.bojo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class PhotoAddOrderResponse {
+import java.io.Serializable;
+
+public class PhotoAddOrderResponse implements Serializable {
 
     @SerializedName("id")
     @Expose

@@ -31,6 +31,7 @@ import com.voise.homeservisegraduateproject.bojo.AddOrderResponse;
 import com.voise.homeservisegraduateproject.data.LiveDataModel;
 import com.voise.homeservisegraduateproject.databinding.FragmentAddOrderProblemLocationBinding;
 import com.voise.homeservisegraduateproject.ui.MainActivity;
+import com.voise.homeservisegraduateproject.ui.SplashScreen.SuccesAddOrderActivity;
 import com.voise.homeservisegraduateproject.utils.Functions;
 
 import java.util.ArrayList;
@@ -127,7 +128,7 @@ public class AddOrderProblemLocation extends Fragment implements OnMapReadyCallb
                 if (authResponse.getSuccess()) {
                     Functions.getInstanse().hideDialog();
                     Toast.makeText(getActivity(), "Add Order Success", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(getActivity(), MainActivity.class);
+                    Intent i = new Intent(getActivity(), SuccesAddOrderActivity.class);
                     startActivity(i);
                 } else {
                     Functions.getInstanse().hideDialog();

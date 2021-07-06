@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.voise.homeservisegraduateproject.R;
-import com.voise.homeservisegraduateproject.adapter.OrderCompletedAdapter;
+import com.voise.homeservisegraduateproject.adapter.PendingOrderAdapter;
 import com.voise.homeservisegraduateproject.bojo.CompletedOrder;
 import com.voise.homeservisegraduateproject.bojo.DataPendingOrderResponse;
 import com.voise.homeservisegraduateproject.databinding.FragmentPendingOrderBinding;
@@ -36,8 +36,7 @@ public class PendingOrderFragment extends Fragment {
     FragmentPendingOrderBinding fragmentPendingOrderBinding;
 
     View root;
-    OrderCompletedAdapter orderCompletedAdapter;
-    private List<CompletedOrder> completedOrders = new ArrayList<>();
+    PendingOrderAdapter orderCompletedAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,7 +51,7 @@ public class PendingOrderFragment extends Fragment {
 
 
         initCurrent();
-        getAllWorkData();
+        getAllPendingOrderData();
         return root;
     }
 
@@ -60,9 +59,9 @@ public class PendingOrderFragment extends Fragment {
 
     }
 
-    public void getAllWorkData() {
+    public void getAllPendingOrderData() {
         pendingOrderViewModel.getAllWorkData();
-        orderCompletedAdapter = new OrderCompletedAdapter();
+        orderCompletedAdapter = new PendingOrderAdapter();
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         fragmentPendingOrderBinding.recyclerPending.setLayoutManager(mLayoutManager);
         fragmentPendingOrderBinding.recyclerPending.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));

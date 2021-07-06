@@ -9,6 +9,7 @@ import com.voise.homeservisegraduateproject.bojo.AllOfferResponse;
 import com.voise.homeservisegraduateproject.bojo.AllWorkDataResponse;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseCustomer;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseProvider;
+import com.voise.homeservisegraduateproject.bojo.CompletedOrderResponse;
 import com.voise.homeservisegraduateproject.bojo.HomeProviderResponse;
 import com.voise.homeservisegraduateproject.bojo.PendingOrderResponse;
 import com.voise.homeservisegraduateproject.bojo.UnCompletedOrderResponse;
@@ -75,6 +76,10 @@ public class FunctionServer {
     public Call<UnCompletedOrderResponse> getAllUnCompleteRequest() {
         return dataInterface.getAllUnCompleteRequest();
     }
+    public Call<CompletedOrderResponse> getAllCompleteRequest() {
+        return dataInterface.getAllCompleteRequest();
+    }
+
     public Call<AllOfferResponse> getAllOfferUserRequest(int order_id) {
         return dataInterface.getAllOfferUserRequest(order_id);
     }
@@ -119,47 +124,7 @@ public class FunctionServer {
 //        return dataInterface.Rating(rate, comment, service_id);
 //    }
 //
-//    public Call<CategoriesResponse> getCategoriess() {
-//        return dataInterface.getCategoriesResponse();
-//    }
-//
-//    public Call<SpeciesDataResponse> getSpeciesData(int serviceId, String title, int city_id, int page) {
-//        return dataInterface.getSpeciesDataResponse(serviceId, title, city_id, page);
-//    }
-//
-//    public Call<SpeciesDataResponse> getSpeciesData1(int serviceId, int city_id, int page) {
-//        return dataInterface.getSpeciesDataResponse(serviceId, city_id, page);
-//    }
-//
-//    public Call<SpeciesDataResponse> getSpeciesData2(int serviceId, int page) {
-//        return dataInterface.getSpeciesDataResponse(serviceId, page);
-//    }
-//
-//    public Call<SpeciesDataResponse> getSpeciesData3(int serviceId, String title, int page) {
-//        return dataInterface.getSpeciesDataResponse(serviceId, title, page);
-//    }
-//
-//    public Call<CityResponse> getCity() {
-//        return dataInterface.getCityResponse();
-//    }
-//
-//    public Call<ServesDetailsResponse> getServesDetails(int serviceId) {
-//        return dataInterface.getServiceResponseDetails(serviceId);
-//    }
-//
-//    public Call<NotificationResponse> getNotificationResponse() {
-//        return dataInterface.getNotificationResponse();
-//    }
-//
-//    public Call<ResponseStatus> ContactUs(String name, String email, String phone, String message) {
-//        return dataInterface.ContactUs(name, email, phone, message);
-//    }
-//
-//    public Call<ResponseStatus> Subscribe(String name, String email, String gender, String type) {
-//
-//        return dataInterface.Subscribe(name, email, gender, type);
-//    }
-//
+
 //    public Call<ResponseStatus> UpdatePassword(String old_password, String password, String password_confirmation) {
 //        Map<String, Object> map = new HashMap<>();
 //        map.put("old_password",old_password);

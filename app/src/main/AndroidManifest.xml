@@ -39,7 +39,11 @@
         <activity
             android:name=".uiOfServiceProvider.ServiceProviderMainActivity"
             android:label="@string/title_activity_service_provider_main" />
-        <activity android:name=".ui.SplashScreen.SuccesAddOrderActivity" />
+        <activity
+            android:name=".ui.SplashScreen.SuccesAddOrderActivity"
+            android:theme="@style/Theme.HomeServiceGraduateProject">
+
+        </activity>
         <activity android:name=".ui.uiCustomerUser.order.AcceptOfferToUser" />
         <activity android:name=".ui.uiCustomerUser.order.DetailsOrder.DetailsOrdertActivity" />
         <!--

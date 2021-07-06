@@ -7,6 +7,7 @@ import com.voise.homeservisegraduateproject.bojo.AllOfferResponse;
 import com.voise.homeservisegraduateproject.bojo.AllWorkDataResponse;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseCustomer;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseProvider;
+import com.voise.homeservisegraduateproject.bojo.CompletedOrderResponse;
 import com.voise.homeservisegraduateproject.bojo.HomeProviderResponse;
 import com.voise.homeservisegraduateproject.bojo.PendingOrderResponse;
 import com.voise.homeservisegraduateproject.bojo.UnCompletedOrderResponse;
@@ -75,6 +76,10 @@ public interface DataInterface {
     @GET("order/pending/user")
     public Call<UnCompletedOrderResponse> getAllUnCompleteRequest();
 
+    @GET("order/complete/user")
+    public Call<CompletedOrderResponse> getAllCompleteRequest();
+
+
     @FormUrlEncoded
     @POST("get/all/offer")
     public Call<AllOfferResponse> getAllOfferUserRequest(
@@ -91,6 +96,10 @@ public interface DataInterface {
     @POST("home/deliver")
         public Call<HomeProviderResponse> HomeProviderService(
              @Field("orderBy") String orderBy);
+
+
+
+
 //    @GET("order/pending/user")
 //    public Call<PendingOrderResponse> getAllUnCompleteRequest();
 //    @FormUrlEncoded

@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.google.gson.Gson;
-
 
 public class SharedPreferanse {
 
@@ -46,6 +44,7 @@ public class SharedPreferanse {
     public static String IDCruft = "IDCruft";
 
     public static String Type_Complete_Pending_UnComplete = "IMAGE_CATEGORIES";
+    public static int Position =  1;
     public static String TITLE_CATEGORIES = "TITLE_CATEGORIES";
     public static String ID_CATEGORIES = "ID_CATEGORIES";
     public static final String SP_USER = "user";
@@ -72,10 +71,17 @@ public class SharedPreferanse {
     public static String read(String key, String defValue) {
         return mSharedPref.getString(key, defValue);
     }
-
+    public static int read2(int key1, int defValue) {
+        return mSharedPref.getInt(String.valueOf(key1), defValue);
+    }
     public static void write(String key, String value) {
         SharedPreferences.Editor prefsEditor = mSharedPref.edit();
         prefsEditor.putString(key, value);
+        prefsEditor.apply();
+    }
+    public static void write2(int keys, int values) {
+        SharedPreferences.Editor prefsEditor = mSharedPref.edit();
+        prefsEditor.putInt(String.valueOf(keys), values);
         prefsEditor.apply();
     }
     private SharedPreferanse(Context context) {

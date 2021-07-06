@@ -13,6 +13,11 @@
     <string name="Service_provider">مقدم خدمة</string>
     <string name="Customer">زبون</string>
     <string name="Next">التالي</string>
+    <string name="ORDER">الطلب </string>
+    <string name="Donesent">تم إرسال الطلب. سيتصل بك أحد الفنيين</string>
+    <string name="Go_To_Home">اذهب الى الرئيسية </string>
+
+    <string name="Done">تم اتمام </string>
     <string name="serviceType"> نوع الخدمة :  </string>
     <string name="location">المكان </string>
     <string name="OrderId">رقم الطلب  # </string>

@@ -1,96 +1,87 @@
 package com.voise.homeservisegraduateproject.adapter;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
+        import android.app.Activity;
+        import android.content.Context;
+        import android.os.Build;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.ImageView;
 
-import androidx.recyclerview.widget.RecyclerView;
+        import androidx.annotation.NonNull;
+        import androidx.annotation.RequiresApi;
+        import androidx.recyclerview.widget.RecyclerView;
+        import androidx.viewpager.widget.PagerAdapter;
+        import androidx.viewpager.widget.ViewPager;
 
-import com.squareup.picasso.Picasso;
-import com.voise.homeservisegraduateproject.R;
-import com.voise.homeservisegraduateproject.bojo.ImageModel_slider;
+        import com.squareup.picasso.Picasso;
+        import com.voise.homeservisegraduateproject.R;
+        import com.voise.homeservisegraduateproject.bojo.ImageModel_slider;
+        import com.voise.homeservisegraduateproject.bojo.PhotoOrderResponse;
 
-import java.util.ArrayList;
+        import java.util.ArrayList;
+        import java.util.List;
+        import java.util.Objects;
 
 /**
  * Created by acer on 3/12/2018.
  */
 
-public class AdapterSliderDetails extends RecyclerView.Adapter<AdapterSliderDetails.MyViewHolder> {
+public class AdapterSliderDetails extends PagerAdapter {
+    private Context context;
+    private List<PhotoOrderResponse> model_home_sliders;
 
-    //    private List<Modelslider> tasksList;
-    private Activity activity;
-    ArrayList<ImageModel_slider> tasksList = new ArrayList<>();
-    //    public static final int Header = 1;
-    public static final int Normal = 2;
-
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        //        public FullscreenVideoLayout imageVideo;
-        public ImageView image1;
-
-        //        public CardView main_product;
-//        public TextView text ;
-        public MyViewHolder(View view) {
-            super(view);
-            image1 = (ImageView) view.findViewById(R.id.image4);
-//            text = (TextView) view.findViewById(R.id.text);
-//            VideoView.setActivity(activity);
-            //            image = view.findViewById(R.id.imageView);
-//            main_product = view.findViewById(R.id.card);
-        }
+    public AdapterSliderDetails(Context context, List<PhotoOrderResponse> imageResource) {
+        this.context = context;
+        this.model_home_sliders = imageResource;
     }
-
-
-    public AdapterSliderDetails(Activity activity, ArrayList<ImageModel_slider> moviesList) {
-        this.tasksList = moviesList;
-        this.activity = activity;
-    }
-
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View item = null;
-        if (viewType == Normal) {
-            item = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_slider_details, parent, false);
-        }
-// else {
-//            item = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemvidou, parent, false);
-//        }
-
-        return new MyViewHolder(item);
+    public int getCount() {
+        return model_home_sliders.size();
     }
 
-
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        final ImageModel_slider modelVideo = tasksList.get(position);
-        holder.image1.setImageResource(modelVideo.getImageurl());
+    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
+        return view == object;
+    }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @NonNull
+    @Override
+    public Object instantiateItem(@NonNull ViewGroup container, final int position) {
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = Objects.requireNonNull(inflater).inflate(R.layout.item_slider_details, null);
+        final PhotoOrderResponse model_home_slider = model_home_sliders.get(position);
 
-        Picasso.with(activity).load(modelVideo.getImageurl()).into(holder.image1);
+//        TextView text_sammary = view.findViewById(R.id.text_sammary);
+        ImageView image_welcome = view.findViewById(R.id.image4);
 
-        Picasso.with(activity)
-                .load(tasksList.get(position).getImageurl())
+//        image_welcome.setImageResource(model_home_slider.getPhoto());
+
+        //        holder.image4.setImageResource(modelVideo.getPhoto());
+
+//        Picasso.with(activity).load(modelVideo.getImageurl()).into(holder.image1);
+
+        Picasso.with(context)
+                .load(model_home_slider.getPhoto())
                 .centerCrop()
                 .resize(200, 200)
-                .placeholder(R.drawable.shape_slider_white).into(holder.image1);
+                .placeholder(R.drawable.shape_slider_white).into(image_welcome);
 
 
+
+        ViewPager viewPager = (ViewPager) container;
+        viewPager.addView(view, 0);
+
+        return view;
     }
 
     @Override
-    public int getItemCount() {
-        return tasksList.size();
+    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+        ViewPager viewPager = (ViewPager) container;
+        View view = (View) object;
+        viewPager.removeView(view);
     }
-
-    @Override
-    public int getItemViewType(int position) {
-        if (position == 0) {
-//            return Header;
-        }
-        return Normal;
-    }
-
 }
+

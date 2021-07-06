@@ -33,21 +33,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:id="@+id/recyclerView"
+
+                        <androidx.viewpager.widget.ViewPager
+                            android:id="@+id/imageViewSlider"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:layout_gravity="center"
+                            android:layout_alignParentTop="true"
+
+                            />
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/indicator_tab_layout_stadiums_details"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_alignParentTop="true"
-                        android:scaleType="center"
-                        android:src="@drawable/adw">
-
-                    </ImageView>
-
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_above="@+id/d"
+                        app:tabBackground="@drawable/tap_selector_slider"
+                        app:tabGravity="center"
+                        app:tabIndicatorHeight="0dp" />
                     <RelativeLayout
                         android:id="@+id/d"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/recyclerView"
+                        android:layout_below="@+id/imageViewSlider"
                         android:layout_marginTop="-15dp"
                         android:background="@drawable/shape_details"
                         android:paddingBottom="10dp">
@@ -269,6 +279,8 @@
                     android:id="@+id/dataUserAccept"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:orientation="vertical"
                     android:visibility="visible">
 
@@ -276,19 +288,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:orientation="horizontal"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center"
                         android:padding="15dp">
+
 
                         <ImageView
                             android:id="@+id/image_avatar"
                             android:layout_width="45dp"
                             android:layout_height="45dp"
-                            android:src="@drawable/as" />
+                            android:src="@drawable/as"
+                              />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
+                             android:layout_gravity="center"
+                            android:gravity="center"
                             android:orientation="vertical">
 
                             <com.voise.homeservisegraduateproject.customfonts.MyTextView
@@ -296,6 +313,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Mohammed R."
+                                android:layout_marginTop="10dp"
                                 android:textColor="@color/black"
                                 android:textSize="13sp" />
 
@@ -311,6 +329,7 @@
                                 android:padding="2dp"
                                 android:rating="3"
                                 android:stepSize="1"
+                                android:layout_marginTop="10dp"
                                 app:mrb_fillBackgroundStars="true"
                                 app:mrb_progressBackgroundTint="@color/colorSilver"
                                 app:mrb_progressTint="@color/purple_700" />
@@ -342,14 +361,17 @@
 
                         </com.voise.homeservisegraduateproject.customfonts.MyTextView>
                     </LinearLayout>
+
                     <com.voise.homeservisegraduateproject.customfonts.MyButton
+                        android:id="@+id/btnFinishOrder"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
-                        android:id="@+id/btnFinishOrder"
                         android:background="@drawable/btn_next"
+                        android:text="Rate Provider and FinishOrder"
                         android:textColor="@color/white"
-                        android:text="Rate Provider and FinishOrder"/>
+                        android:visibility="visible"
+                        />
 
 
                 </LinearLayout>

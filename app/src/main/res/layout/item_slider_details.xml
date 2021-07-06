@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/image4"
-        android:src="#000"
-
+        android:src="@drawable/as"
+        android:scaleType="center"
         android:layout_width="match_parent"
          android:layout_height="match_parent" />
 

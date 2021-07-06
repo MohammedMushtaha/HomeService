@@ -13,6 +13,11 @@
     <string name="Service_provider">Service provider</string>
     <string name="Customer">Customer</string>
     <string name="Next">Next</string>
+    <string name="ORDER">ORDER </string>
+    <string name="Donesent">The ORDER has been sent. A technician will contact you </string>
+    <string name="Go_To_Home">Go To Home </string>
+
+    <string name="Done">Done </string>
     <string name="AddOrder">Add Order</string>
     <string name="serviceType"> Service Type </string>
     <string name="location">location </string>
