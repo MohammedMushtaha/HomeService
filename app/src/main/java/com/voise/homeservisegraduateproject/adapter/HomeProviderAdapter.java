@@ -3,6 +3,7 @@ package com.voise.homeservisegraduateproject.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,7 @@ import java.util.List;
 
 public class HomeProviderAdapter extends RecyclerView.Adapter<HomeProviderAdapter.PostViewHolder> {
     private List<DataHomeProviderResponse> dataWorks = new ArrayList<>();
-     Activity activity;
+    Activity activity;
 
     @NonNull
     @Override
@@ -44,12 +45,17 @@ public class HomeProviderAdapter extends RecyclerView.Adapter<HomeProviderAdapte
         holder.serviceType.setText(movie.getWork().getName());
 
 //        Picasso.with(activity).load(movie.getImage()).into(holder.image_item);
+   try {
+       Picasso.with(activity)
+               .load(dataWorks.get(position).getPhotoOrderHome().getPhoto())
+               .centerCrop()
+               .resize(200, 200)
+               .placeholder(R.drawable.ic_electricity_logo).into(holder.order_image);
+   }catch (Exception e){
+       Log.e("","");
+   }
 
-//        Picasso.with(activity)
-//                .load(dataWorks.get(position).getPhotoOrderHome().getPhoto())
-//                .centerCrop()
-//                .resize(200, 200)
-//                .placeholder(R.drawable.ic_electricity_logo).into(holder.order_image);
+
 
         holder.setItemClickListener(new ItemClickLisener() {
             @Override
@@ -72,7 +78,7 @@ public class HomeProviderAdapter extends RecyclerView.Adapter<HomeProviderAdapte
     }
 
     public class PostViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener, View.OnClickListener {
-        private TextView order_date,serviceType,orderid,name;
+        private TextView order_date, serviceType, orderid, name;
         private ImageView order_image;
         private ItemClickLisener itemClickLisener;
 

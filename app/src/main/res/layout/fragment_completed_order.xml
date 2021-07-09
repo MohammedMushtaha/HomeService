@@ -14,9 +14,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/recyclerCompletedOrder">
+            android:id="@+id/recyclerCompletedOrder"
+            android:layout_marginBottom="55dp"/>
 
-        </androidx.recyclerview.widget.RecyclerView>
+
 
     </RelativeLayout>
 </layout>

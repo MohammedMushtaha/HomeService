@@ -1,6 +1,5 @@
 package com.voise.homeservisegraduateproject.data;
 
-
 import com.voise.homeservisegraduateproject.bojo.AcceptUserResponse;
 import com.voise.homeservisegraduateproject.bojo.AddOrderResponse;
 import com.voise.homeservisegraduateproject.bojo.AllOfferResponse;
@@ -8,6 +7,8 @@ import com.voise.homeservisegraduateproject.bojo.AllWorkDataResponse;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseCustomer;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseProvider;
 import com.voise.homeservisegraduateproject.bojo.CompletedOrderResponse;
+import com.voise.homeservisegraduateproject.bojo.CreateOfferResponse;
+import com.voise.homeservisegraduateproject.bojo.FinishOrderResponse;
 import com.voise.homeservisegraduateproject.bojo.HomeProviderResponse;
 import com.voise.homeservisegraduateproject.bojo.PendingOrderResponse;
 import com.voise.homeservisegraduateproject.bojo.UnCompletedOrderResponse;
@@ -60,7 +61,6 @@ public interface DataInterface {
     @GET("all/works")
     public Call<AllWorkDataResponse> getAllWorkResponse();
 
-
     @POST("create/order")
     public Call<AddOrderResponse> AddOrder(@Body Map<String, Object> params);
 
@@ -79,10 +79,14 @@ public interface DataInterface {
     @GET("order/complete/user")
     public Call<CompletedOrderResponse> getAllCompleteRequest();
 
-
     @FormUrlEncoded
     @POST("get/all/offer")
     public Call<AllOfferResponse> getAllOfferUserRequest(
+            @Field("order_id") int id);
+
+    @FormUrlEncoded
+    @POST("finish/order")
+    public Call<FinishOrderResponse> FinishOrderRequest(
             @Field("order_id") int id);
 
     @FormUrlEncoded
@@ -91,13 +95,16 @@ public interface DataInterface {
             @Field("delivery_id") String delivery_id,
             @Field("order_id") String order_id);
 
-
     @FormUrlEncoded
     @POST("home/deliver")
         public Call<HomeProviderResponse> HomeProviderService(
              @Field("orderBy") String orderBy);
 
 
+    @FormUrlEncoded
+    @POST("create/Offer")
+    public Call<CreateOfferResponse> createOfferRequest(
+            @Field("orderBy") String orderBy);
 
 
 //    @GET("order/pending/user")

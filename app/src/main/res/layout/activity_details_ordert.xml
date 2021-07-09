@@ -50,6 +50,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_above="@+id/d"
+                        android:background="#00FFFFFF"
                         app:tabBackground="@drawable/tap_selector_slider"
                         app:tabGravity="center"
                         app:tabIndicatorHeight="0dp" />
@@ -271,7 +272,7 @@
                     android:id="@+id/recyclerViewListUser"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
                 </androidx.recyclerview.widget.RecyclerView>
 
@@ -282,7 +283,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="match_parent"

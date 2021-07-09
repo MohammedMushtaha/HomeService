@@ -4,5 +4,5 @@
     <item android:drawable="@drawable/welcome_select_indicator"
         android:state_selected="true" />
 
-    <item android:drawable="@drawable/welcome_defult_indicator" />
+    <item android:drawable="@drawable/welcome_select_indicator" />
 </selector>

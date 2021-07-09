@@ -39,7 +39,7 @@ public class DataHomeProviderResponse  implements Serializable {
     @Expose
     private UserCustomer user;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 

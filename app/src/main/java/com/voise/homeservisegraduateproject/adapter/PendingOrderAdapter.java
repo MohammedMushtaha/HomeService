@@ -83,7 +83,6 @@ public class PendingOrderAdapter extends RecyclerView.Adapter<PendingOrderAdapte
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         final DataPendingOrderResponse category_model = category_modelList.get(position);
-        SharedPreferanse.write2(SharedPreferanse.Position,position);
         holder.order_number.setText("# "+category_model.getId()+"");
         holder.order_date.setText(category_model.getCreatedAt());
         holder.order_cat.setText(category_model.getWork().getName());
@@ -97,6 +96,8 @@ public class PendingOrderAdapter extends RecyclerView.Adapter<PendingOrderAdapte
         holder.setItemClickListener(new ItemClickLisener() {
             @Override
             public void onClick(View view, int Position, boolean isLongClick) {
+                SharedPreferanse.write2(SharedPreferanse.Position,position);
+
                 SharedPreferanse.write(SharedPreferanse.Type_Complete_Pending_UnComplete,"2");
                 Intent i =new Intent(activity, DetailsOrdertActivity.class);
                 i.putExtra("data1", category_model);

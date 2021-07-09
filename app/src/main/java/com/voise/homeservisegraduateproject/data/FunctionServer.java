@@ -10,6 +10,8 @@ import com.voise.homeservisegraduateproject.bojo.AllWorkDataResponse;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseCustomer;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseProvider;
 import com.voise.homeservisegraduateproject.bojo.CompletedOrderResponse;
+import com.voise.homeservisegraduateproject.bojo.CreateOfferResponse;
+import com.voise.homeservisegraduateproject.bojo.FinishOrderResponse;
 import com.voise.homeservisegraduateproject.bojo.HomeProviderResponse;
 import com.voise.homeservisegraduateproject.bojo.PendingOrderResponse;
 import com.voise.homeservisegraduateproject.bojo.UnCompletedOrderResponse;
@@ -73,9 +75,11 @@ public class FunctionServer {
     public Call<PendingOrderResponse> getAllPendingRequest() {
         return dataInterface.getAllPendingRequest();
     }
+
     public Call<UnCompletedOrderResponse> getAllUnCompleteRequest() {
         return dataInterface.getAllUnCompleteRequest();
     }
+
     public Call<CompletedOrderResponse> getAllCompleteRequest() {
         return dataInterface.getAllCompleteRequest();
     }
@@ -84,11 +88,19 @@ public class FunctionServer {
         return dataInterface.getAllOfferUserRequest(order_id);
     }
 
+    public Call<FinishOrderResponse> FinishOrderRequest(int order_id) {
+        return dataInterface.FinishOrderRequest(order_id);
+    }
+
     public Call<AcceptUserResponse> AcceptOfferUserRequest(String delivery_id, String order_id ) {
         return dataInterface.AcceptOfferUserRequest(delivery_id,order_id);
     }
-    public Call<HomeProviderResponse> HomeProviderService(String orderBy ) {
+    public Call<HomeProviderResponse> HomeProviderService(String orderBy) {
         return dataInterface.HomeProviderService(orderBy);
+    }
+
+    public Call<CreateOfferResponse> createOfferRequest(String orderBy) {
+        return dataInterface.createOfferRequest(orderBy);
     }
 
     public Call<AddOrderResponse> AddOrder(int work_id, String details, String details_address, List<Uri> photo, String phone, long latitude, long longitude) {
@@ -116,14 +128,11 @@ public class FunctionServer {
             surveyImagesParts[index] = MultipartBody.Part.createFormData("photos[]", fileSubImg.getName(), surveyBody);
         }
 
-
         return dataInterface.AddOrder2(map, surveyImagesParts);
     }
-//
-//    public Call<ResponseStatus> Rating(double rate, String comment, int service_id) {
-//        return dataInterface.Rating(rate, comment, service_id);
-//    }
-//
+
+
+
 
 //    public Call<ResponseStatus> UpdatePassword(String old_password, String password, String password_confirmation) {
 //        Map<String, Object> map = new HashMap<>();
