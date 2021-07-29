@@ -20,6 +20,7 @@ import com.voise.homeservisegraduateproject.bojo.DataHomeProviderResponse;
 import com.voise.homeservisegraduateproject.bojo.DataWork;
 import com.voise.homeservisegraduateproject.interfaces.ItemClickLisener;
 import com.voise.homeservisegraduateproject.ui.uiCustomerUser.home.AddOrderProblemActivity;
+import com.voise.homeservisegraduateproject.uiOfServiceProvider.ui.home_provider.DetailsOrderProvider.DetailsOrderServiceProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,22 +46,24 @@ public class HomeProviderAdapter extends RecyclerView.Adapter<HomeProviderAdapte
         holder.serviceType.setText(movie.getWork().getName());
 
 //        Picasso.with(activity).load(movie.getImage()).into(holder.image_item);
-   try {
-       Picasso.with(activity)
-               .load(dataWorks.get(position).getPhotoOrderHome().getPhoto())
-               .centerCrop()
-               .resize(200, 200)
-               .placeholder(R.drawable.ic_electricity_logo).into(holder.order_image);
-   }catch (Exception e){
-       Log.e("","");
-   }
-
+        try {
+            Picasso.with(activity)
+                    .load(dataWorks.get(position).getPhotoOrderHome().getPhoto())
+                    .centerCrop()
+                    .resize(200, 200)
+                    .placeholder(R.drawable.ic_electricity_logo).into(holder.order_image);
+        } catch (Exception e) {
+            Log.e("", "");
+        }
 
 
         holder.setItemClickListener(new ItemClickLisener() {
             @Override
             public void onClick(View view, int Position, boolean isLongClick) {
+                Intent i = new Intent(activity, DetailsOrderServiceProvider.class);
+                i.putExtra("data5", movie);
 
+                activity.startActivity(i);
 
             }
         });

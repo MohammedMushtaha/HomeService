@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.voise.homeservisegraduateproject.R;
 //import com.voise.homeservisegraduateproject.databinding.FragmentMoreBinding;
+import com.voise.homeservisegraduateproject.SharedPreferanse.SharedPreferanse;
 import com.voise.homeservisegraduateproject.databinding.FragmentMoreCustomerBinding;
 import com.voise.homeservisegraduateproject.ui.uiCustomerUser.moreApp.AboutApp.AboutAppFragment;
 import com.voise.homeservisegraduateproject.utils.Functions;
@@ -80,6 +81,34 @@ public class MoreFragment extends Fragment {
 
             }
         });
+        binding.relative4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferanse.write(SharedPreferanse.p_y_a,"2");
+                AboutAppFragment fragment2 = new AboutAppFragment();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fm.beginTransaction().addToBackStack(null);
+//        Bundle args = new Bundle();
+//        args.putString("m", m);
+//        fragment2.setArguments(args);
+                fragmentTransaction.replace(R.id.edit_frame, fragment2);
+                fragmentTransaction.commit();
+            }
+        });
+        binding.relative5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferanse.write(SharedPreferanse.p_y_a,"3");
+                AboutAppFragment fragment2 = new AboutAppFragment();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fm.beginTransaction().addToBackStack(null);
+//        Bundle args = new Bundle();
+//        args.putString("m", m);
+//        fragment2.setArguments(args);
+                fragmentTransaction.replace(R.id.edit_frame, fragment2);
+                fragmentTransaction.commit();
+            }
+        });
 
         binding.maskBackground.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +123,7 @@ public class MoreFragment extends Fragment {
         binding.aboutApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferanse.write(SharedPreferanse.p_y_a,"1");
                 AboutAppFragment fragment2 = new AboutAppFragment();
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fm.beginTransaction().addToBackStack(null);

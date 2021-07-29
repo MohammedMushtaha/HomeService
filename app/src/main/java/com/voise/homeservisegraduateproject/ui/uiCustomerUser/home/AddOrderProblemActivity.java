@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProviders;
@@ -24,14 +25,16 @@ import com.voise.homeservisegraduateproject.adapter.ImageUploadAdapter;
 import com.voise.homeservisegraduateproject.bojo.DataWork;
 import com.voise.homeservisegraduateproject.databinding.FragmentAddOrderProblemBinding;
 import com.voise.homeservisegraduateproject.ui.MainActivity;
+import com.voise.homeservisegraduateproject.ui.auth.login.LoginActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import gun0912.tedbottompicker.TedBottomPicker;
 import gun0912.tedbottompicker.TedBottomSheetDialogFragment;
+import www.sanju.motiontoast.MotionToast;
 
-public class AddOrderProblemActivity extends AppCompatActivity {
+public class    AddOrderProblemActivity extends AppCompatActivity {
     private DataWork dataWork;
     AddOrderProblemViewModel addOrderProblemViewModel;
     FragmentAddOrderProblemBinding addOrderProblemBinding;
@@ -123,7 +126,14 @@ public class AddOrderProblemActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (uriArrayList.size() == 0||addOrderProblemBinding.inputTextProblem.getText().toString().equals("")) {
-                    Toast.makeText(AddOrderProblemActivity.this, "Must Upload photo And Text Problem", Toast.LENGTH_SHORT).show();
+                    MotionToast.Companion.createToast(
+                            AddOrderProblemActivity.this,
+                            "Must Upload photo And Text Problem",
+                            MotionToast.TOAST_ERROR,
+                            MotionToast.GRAVITY_BOTTOM,
+                            MotionToast.SHORT_DURATION,
+                            ResourcesCompat.getFont(AddOrderProblemActivity.this, R.font.helvetica_regular));
+//                    Toast.makeText(AddOrderProblemActivity.this, "Must Upload photo And Text Problem", Toast.LENGTH_SHORT).show();
                 } else {
                     getSupportFragmentManager().beginTransaction().replace(R.id.edit_frame3, new AddOrderProblemLocation(uriArrayList, addOrderProblemBinding.inputTextProblem.getText().toString(),idCruft)).addToBackStack(null).commit();
 

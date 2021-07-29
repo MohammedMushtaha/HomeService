@@ -1,9 +1,324 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".uiOfServiceProvider.ui.home_provider.DetailsOrderProvider.DetailsOrderServiceProvider">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:id="@+id/frame"
+        tools:context=".uiOfServiceProvider.ui.home_provider.DetailsOrderProvider.DetailsOrderServiceProvider">
+
+
+        <ScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/relative"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/toolbar"
+                    layout="@layout/toolbar"></include>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="75dp"
+                    android:layout_marginRight="10dp"
+                    android:visibility="gone"
+                    tools:listitem="@layout/item_slider" />
+
+                <ImageView
+                    android:id="@+id/image_view_pager_stadiums_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="85dp"
+                    android:src="@drawable/as"
+                    android:scaleType="centerCrop"
+                    android:layout_marginRight="10dp"/>
+
+
+                <RelativeLayout
+                    android:id="@+id/card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="75dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/item_space"
+
+                    android:visibility="gone">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="150dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/item_space"
+                        android:elevation="3dp"
+                        app:cardCornerRadius="15dp">
+
+                        <RelativeLayout
+                            android:id="@+id/cadrd"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:background="@drawable/item_space"
+                            android:visibility="visible">
+
+                            <ImageView
+                                android:id="@+id/image_whenThe_Slider_null"
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"
+                                android:background="@drawable/item_space"
+                                android:scaleType="centerCrop"
+
+                                android:visibility="visible" />
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </RelativeLayout>
+
+
+
+                <!--            <Button-->
+
+                <!--                android:id="@+id/btn_vi"-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="150dp"-->
+                <!--                android:layout_alignParentTop="true"-->
+                <!--                android:layout_marginLeft="10dp"-->
+                <!--                android:layout_marginTop="75dp"-->
+                <!--                android:layout_marginRight="10dp"-->
+                <!--                android:background="#00FFFFFF"-->
+                <!--                android:enabled="false">-->
+
+                <!--            </Button>-->
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/image_person_Details"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/image_view_pager_stadiums_details"
+                     android:layout_marginTop="-40dp"
+                     android:layout_alignParentStart="true"
+                    android:layout_marginStart="50dp"
+
+                    android:background="@drawable/elevation"
+                    android:layoutDirection="locale"
+
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_baseline_perm_identity_24" />
+
+
+                <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                    android:id="@+id/text_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/image_view_pager_stadiums_details"
+                     android:layout_marginTop="35dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="30dp"
+                     android:text="مركز براعة القمة"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+
+
+                <LinearLayout
+                    android:id="@+id/linear1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text_title"
+                     android:layout_marginEnd="20dp"
+                     android:layout_marginTop="15dp"
+                    android:layout_marginStart="30dp"
+                     android:layoutDirection="locale"
+                    android:orientation="horizontal"
+
+                    >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_iphone"
+                        android:layout_marginEnd="10dp"
+                        android:layout_gravity="center">
+
+                    </ImageView>
+
+                    <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                        android:id="@+id/mobile"
+                        android:layout_width="120dp"
+                        android:layout_height="30dp"
+                        android:focusable="false"
+                        android:layout_gravity="center"
+                        android:foregroundGravity="right"
+                        android:hapticFeedbackEnabled="false"
+                        android:numStars="5"
+                        android:padding="2dp"
+                        android:rating="3"
+                        android:stepSize="1"
+                        app:mrb_fillBackgroundStars="true"
+                        app:mrb_progressBackgroundTint="@color/colorSilver"
+                        app:mrb_progressTint="@color/purple_700" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/linear_map"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linear1"
+                    android:layout_alignParentStart="true"
+                      android:layout_marginTop="15dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                     android:gravity="right"
+                    android:layoutDirection="locale"
+                    android:orientation="horizontal"
+                    android:textDirection="rtl">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_location">
+
+                    </ImageView>
+
+                    <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                        android:id="@+id/country"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="20dp"
+                         android:gravity="center"
+                        android:text="لايوجد إسم"
+                        android:textColor="#000" />
+
+
+                </LinearLayout>
+
+
+                <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                    android:id="@+id/text_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linear_map"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="start"
+                    android:layoutDirection="rtl"
+                    android:text="لا يوجد تفاصيل"
+                    android:textColor="#000"
+                    android:textDirection="rtl"
+                    android:textStyle="bold" />
+
+
+                <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                    android:id="@+id/text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text_details"
+                     android:layout_marginLeft="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="@string/More_Details"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <com.voise.homeservisegraduateproject.customfonts.MyButton
+                    android:id="@+id/social"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                     android:background="@drawable/btn_next"
+                    android:layout_margin="30dp"
+                    android:text="@string/AddOrder"
+                    android:textColor="@color/white"
+                    android:layout_below="@+id/text">
+
+
+                </com.voise.homeservisegraduateproject.customfonts.MyButton>
+
+            </RelativeLayout>
+        </ScrollView>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/buttomSheet1"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="#fff"
+            app:behavior_hideable="true"
+            app:behavior_peekHeight="0.1dp"
+            app:layout_behavior="@string/bottom_sheet_behavior">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bottom_sheet">
+
+                <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                    android:id="@+id/text_no_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="لا يوجد بيانات"
+                    android:textColor="@color/black" />
+
+                <com.voise.homeservisegraduateproject.customfonts.MyTextView
+                    android:id="@+id/text_no_data2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center"
+                    android:textColor="@color/black" />
+
+
+                <!--<LinearLayout-->
+                <!--    android:layout_width="wrap_content"-->
+                <!--    android:layout_height="wrap_content"-->
+                <!--    android:layout_centerHorizontal="true"-->
+                <!--    android:layout_centerVertical="true"-->
+                <!--    android:layout_alignParentTop="true"-->
+                <!--    android:background="@drawable/bottom_sheet">-->
+
+
+                <!--</LinearLayout>-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/list_item_rating"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text_no_data2"
+                    android:background="@drawable/bottom_sheet">
+
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
+

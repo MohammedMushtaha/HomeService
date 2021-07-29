@@ -1,8 +1,16 @@
-package com.voise.homeservisegraduateproject.ui.uiCustomerUser.userSetting;
+package com.voise.homeservisegraduateproject.uiOfServiceProvider.ui.setting_provider;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.core.view.MotionEventCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
+
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,29 +22,19 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.MotionEventCompat;
-import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
-
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.squareup.picasso.Picasso;
 import com.voise.homeservisegraduateproject.R;
 import com.voise.homeservisegraduateproject.SharedPreferanse.SharedPreferanse;
 import com.voise.homeservisegraduateproject.ui.auth.login.LoginActivity;
-import com.voise.homeservisegraduateproject.ui.uiCustomerUser.home.AddOrderProblemLocationViewModel;
-import com.voise.homeservisegraduateproject.ui.uiCustomerUser.moreApp.AboutApp.AboutAppFragment;
 import com.voise.homeservisegraduateproject.ui.uiCustomerUser.userSetting.EditAccount.EditAccountFragment;
+import com.voise.homeservisegraduateproject.ui.uiCustomerUser.userSetting.UserSettingFragmentViewModel;
 import com.voise.homeservisegraduateproject.utils.Functions;
 
 
-public class UserSettingFragment extends Fragment {
+public class ProviderSettingFragment extends Fragment {
 
-    private UserSettingFragmentViewModel userSettingFragmentViewModel;
+    private ProviderSettingFragmentViewModel providerSettingFragmentViewModel;
     Context context;
     public static BottomSheetBehavior bottomSheetBehavior;
     RelativeLayout contact_us, relative, relative_fava;
@@ -49,16 +47,18 @@ public class UserSettingFragment extends Fragment {
     private EditText E_edit_name, E_edit_email, E_edit_phone, E_edit_text;
     private TextView CityOfUser, NameOfUser;
 
-    public UserSettingFragment(Context context) {
+    public ProviderSettingFragment(Context context) {
         this.context = context;
-
     }
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        userSettingFragmentViewModel =
-                new ViewModelProvider(this).get(UserSettingFragmentViewModel.class);
-        view = inflater.inflate(R.layout.fragment_setting_customer, container, false);
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        providerSettingFragmentViewModel =
+                new ViewModelProvider(this).get(ProviderSettingFragmentViewModel.class);
+        view = inflater.inflate(R.layout.fragment_provider_setting, container, false);
 
 
         init();
@@ -90,7 +90,7 @@ public class UserSettingFragment extends Fragment {
 
         try {
             Picasso.with(getActivity())
-                    .load(SharedPreferanse.read(SharedPreferanse.IMAGECustomer, "d"))
+                    .load(SharedPreferanse.read(SharedPreferanse.IMAGEProvider, "d"))
                     .placeholder(R.drawable.shape_setting_image_user)
                     .error(R.drawable.shape_setting_image_user)
                     .into(image_user);

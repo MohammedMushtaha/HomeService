@@ -6,7 +6,9 @@
     <string name="forget_pass">نسيت كلمة المرور ؟</string>
     <string name="New_Member">عضو جديد ؟</string>
     <string name="setting_sign_out">تسجيل خروج</string>
-    <string name="setting_sign_IN">تسجيل دخول</string>
+     <string name="setting_sign_IN">تسجيل دخول</string>
+     <string name="passandemail">كلمة المرور مطلوبة ,الايميل مطلوب</string>
+    <string name="ErorrLogin">فشلت عملية تسجيل الدخول</string>
     <string name="setting_sign_up">تسجيل حساب جديد</string>
     <string name="btn_login">تسجيل دخول</string>
     <string name="get_start_now">ادخل الان  </string>
@@ -16,8 +18,13 @@
     <string name="ORDER">الطلب </string>
     <string name="Donesent">تم إرسال الطلب. سيتصل بك أحد الفنيين</string>
     <string name="Go_To_Home">اذهب الى الرئيسية </string>
+    <string name="about">عن التطبيق </string>
+    <string name="Terms_and_Condition">الشروط والاحكام  </string>
+    <string name="Privacy">سياسة الخصوصية </string>
+    <string name="pass1">كلمة المرور مطلوبة</string>
+    <string name="email1">الايميل مطلوب </string>
 
-    <string name="Done">تم اتمام </string>
+    <string name="Done">موافق </string>
     <string name="serviceType"> نوع الخدمة :  </string>
     <string name="location">المكان </string>
     <string name="OrderId">رقم الطلب  # </string>

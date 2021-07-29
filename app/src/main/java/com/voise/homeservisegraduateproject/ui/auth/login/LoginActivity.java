@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -21,6 +22,8 @@ import com.voise.homeservisegraduateproject.ui.auth.register.RegisterFragment;
 import com.voise.homeservisegraduateproject.ui.uiCustomerUser.MainActivity2;
 import com.voise.homeservisegraduateproject.uiOfServiceProvider.ServiceProviderMainActivity;
 import com.voise.homeservisegraduateproject.utils.Functions;
+
+import www.sanju.motiontoast.MotionToast;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -84,14 +87,17 @@ public class LoginActivity extends AppCompatActivity {
                     if (activityLoginBinding.editEmail.getText().toString().equals("") && activityLoginBinding.editPassword.getText().toString().equals("")) {
 
                         Functions.getInstanse().diaLog(LoginActivity.this, "فشلت عملية تسجيل الدخول", "كلمة المرور مطلوبة\nو الإيميل مطلوب", "موافق");
+//                        Functions.getInstanse().func2(LoginActivity.this,"فشلت عملية تسجيل الدخول" );
 
                     } else if (activityLoginBinding.editEmail.getText().toString().equals("")) {
 
                         Functions.getInstanse().diaLog(LoginActivity.this, "فشلت عملية تسجيل الدخول", "كلمة المرور مطلوبة", "موافق");
+//                        Functions.getInstanse().func2(LoginActivity.this,"فشلت عملية تسجيل الدخول" );
 
                     } else if (activityLoginBinding.editPassword.getText().toString().equals("")) {
 
                         Functions.getInstanse().diaLog(LoginActivity.this, "فشلت عملية تسجيل الدخول", "الإيميل مطلوب", "موافق");
+//                        Functions.getInstanse().func2(LoginActivity.this,"فشلت عملية تسجيل الدخول" );
 
                     } else {
                         LoginResponse();
@@ -107,10 +113,12 @@ public class LoginActivity extends AppCompatActivity {
         Intent i = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(i);
     }
+
     private void LoadFragmentProvider() {
         Intent i = new Intent(LoginActivity.this, ServiceProviderMainActivity.class);
         startActivity(i);
     }
+
     public void LoginResponse() {
 
         if (SharedPreferanse.read(SharedPreferanse.LoginChoice, "1").equals("1")) {
@@ -133,12 +141,13 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferanse.write(SharedPreferanse.MOBILEProvider, authResponse.getData().getPhone());
                         SharedPreferanse.write(SharedPreferanse.active, authResponse.getData().getActive());
                         SharedPreferanse.write(SharedPreferanse.WorkId, authResponse.getData().getActive());
-                        SharedPreferanse.write(SharedPreferanse.TOKEN, "Bearer "+authResponse.getData().getToken());
+                        SharedPreferanse.write(SharedPreferanse.TOKEN, "Bearer " + authResponse.getData().getToken());
                         LoadFragmentProvider();
 
                     } else {
                         Functions.getInstanse().hideDialog();
                         Functions.getInstanse().diaLog(LoginActivity.this, "فشلت عملية تسجيل الدخول", authResponse.getMessage(), "موافق");
+//                    Functions.getInstanse().func2(LoginActivity.this,"فشلت عملية تسجيل الدخول"+authResponse.getMessage());
                         Log.e("sdsdsdsd", "1111");
                         Toast.makeText(LoginActivity.this, "Error", Toast.LENGTH_SHORT).show();
 
@@ -166,8 +175,18 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferanse.write(SharedPreferanse.IMAGECustomer, authResponse.getData().getPhoto());
                         SharedPreferanse.write(SharedPreferanse.MOBILECustomer, authResponse.getData().getPhone());
                         SharedPreferanse.write(SharedPreferanse.active, authResponse.getData().getActive());
-                        SharedPreferanse.write(SharedPreferanse.TOKEN, "Bearer "+authResponse.getData().getToken());
+                        SharedPreferanse.write(SharedPreferanse.TOKEN, "Bearer " + authResponse.getData().getToken());
                         LoadFragment();
+
+//                        MotionToast.Companion.createToast(
+//                                LoginActivity.this,
+//                                "You can't send empty message !",
+//                                MotionToast.TOAST_ERROR,
+//                                MotionToast.GRAVITY_BOTTOM,
+//                                MotionToast.SHORT_DURATION,
+//                                ResourcesCompat.getFont(LoginActivity.this, R.font.helvetica_regular));
+
+
 
                     } else {
                         Functions.getInstanse().hideDialog();

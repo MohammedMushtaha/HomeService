@@ -22,7 +22,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:gravity="center"
-            android:text="Setting"
+            android:text="AboutApp"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />

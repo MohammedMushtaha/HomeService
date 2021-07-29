@@ -1,16 +1,25 @@
 package com.voise.homeservisegraduateproject.ui.uiCustomerUser.home;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,11 +29,20 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.voise.homeservisegraduateproject.R;
 import com.voise.homeservisegraduateproject.SharedPreferanse.SharedPreferanse;
 import com.voise.homeservisegraduateproject.bojo.AddOrderResponse;
@@ -34,19 +52,27 @@ import com.voise.homeservisegraduateproject.ui.MainActivity;
 import com.voise.homeservisegraduateproject.ui.SplashScreen.SuccesAddOrderActivity;
 import com.voise.homeservisegraduateproject.utils.Functions;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
+import www.sanju.motiontoast.MotionToast;
 
 
-public class AddOrderProblemLocation extends Fragment implements OnMapReadyCallback {
+public class AddOrderProblemLocation extends Fragment {
 
-
+    FusedLocationProviderClient fusedLocationProviderClient;
     AddOrderProblemLocationViewModel addOrderProblemLocationViewModel;
     FragmentAddOrderProblemLocationBinding fragmentAddOrderProblemLocationBinding;
+    private static final int Requist_Code_Location_Permission = 1;
+    private FusedLocationProviderClient client;
     View v;
     private GoogleMap mMap;
     ArrayList<Uri> arrayList;
     String details;
     int IdCruft;
+     LatLng sydney;
 
     public AddOrderProblemLocation(ArrayList<Uri> arrayList, String details, int IdCruft) {
         this.arrayList = arrayList;
@@ -54,17 +80,23 @@ public class AddOrderProblemLocation extends Fragment implements OnMapReadyCallb
         this.IdCruft = IdCruft;
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
         addOrderProblemLocationViewModel = ViewModelProviders.of(this).get(AddOrderProblemLocationViewModel.class);
         fragmentAddOrderProblemLocationBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_order_problem_location, container, false);
         v = fragmentAddOrderProblemLocationBinding.getRoot();
-        fragmentAddOrderProblemLocationBinding.setLifecycleOwner(getActivity());
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
 
+//        getLocation();
+
+        fragmentAddOrderProblemLocationBinding.setLifecycleOwner(getActivity());
+        SupportMapFragment mapFragment =
+                (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(callback);
+        }
 
         RelativeLayout toolbar = v.findViewById(R.id.toolbar);
         TextView text_toolbar = toolbar.findViewById(R.id.text_toolbar);
@@ -74,10 +106,7 @@ public class AddOrderProblemLocation extends Fragment implements OnMapReadyCallb
         image_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), AddOrderProblemActivity.class);
 
-                startActivity(i);
-                Toast.makeText(getActivity(), "" + SharedPreferanse.read(SharedPreferanse.NameCruft, ""), Toast.LENGTH_SHORT).show();
             }
 
         });
@@ -91,26 +120,6 @@ public class AddOrderProblemLocation extends Fragment implements OnMapReadyCallb
             }
         });
 
-        fragmentAddOrderProblemLocationBinding.map3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-//                fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
-//                if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-//                    getLocation();
-//                } else {
-//                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
-//                }
-                MapsFragment fragment2 = new MapsFragment();
-                FragmentManager fm = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                fragmentTransaction.replace(R.id.edit_frame, fragment2);
-
-                fragmentTransaction.commit();
-
-            }
-
-        });
 
         return v;
     }
@@ -127,13 +136,19 @@ public class AddOrderProblemLocation extends Fragment implements OnMapReadyCallb
 
                 if (authResponse.getSuccess()) {
                     Functions.getInstanse().hideDialog();
-                    Toast.makeText(getActivity(), "Add Order Success", Toast.LENGTH_SHORT).show();
+                    MotionToast.Companion.createToast(
+                            getActivity(),
+                            "Add Order Success",
+                            MotionToast.TOAST_SUCCESS,
+                            MotionToast.GRAVITY_BOTTOM,
+                            MotionToast.SHORT_DURATION,
+                            ResourcesCompat.getFont(getActivity(), R.font.helvetica_regular));
+//                    Toast.makeText(getActivity(), "Add Order Success", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(getActivity(), SuccesAddOrderActivity.class);
                     startActivity(i);
                 } else {
                     Functions.getInstanse().hideDialog();
                     Functions.getInstanse().diaLog(getActivity(), "فشلت عملية اضافة طلب", authResponse.getMessage(), "موافق");
-                    Log.e("sdsdsdsd", "1111");
                     Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
 
                 }
@@ -141,63 +156,70 @@ public class AddOrderProblemLocation extends Fragment implements OnMapReadyCallb
         });
     }
 
-    @Override
-    public void onMapReady(@NonNull GoogleMap googleMap) {
-//        LatLng sydney = new LatLng(31.540852, 34.5065272);
-//        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10), 6000, null);
-//        MarkerOptions markerOptions = new MarkerOptions();
-//        markerOptions.position(sydney);
-//        markerOptions.title("title2");
-//        markerOptions.snippet("title");
-//        googleMap.addMarker(markerOptions);
-//        googleMap.getUiSettings().setCompassEnabled(true);
-//        googleMap.getUiSettings().setZoomControlsEnabled(true);
-//        mMap = googleMap;
+    private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(31.540852, 34.5065272);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("string"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        @Override
+        public void onMapReady(@NonNull GoogleMap googleMap) {
+            if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, Requist_Code_Location_Permission);
+
+            } else {
+                LocationRequest locationRequest = new LocationRequest();
+                locationRequest.setInterval(1000);
+                locationRequest.setFastestInterval(3000);
+                locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+                LocationServices.getFusedLocationProviderClient(getActivity()).requestLocationUpdates(locationRequest, new LocationCallback() {
+                    @Override
+                    public void onLocationResult(LocationResult locationResult) {
+                        super.onLocationResult(locationResult);
+                        LocationServices.getFusedLocationProviderClient(getActivity()).removeLocationUpdates(this);
+
+                        if (locationResult != null && locationResult.getLocations().size() > 0) {
+                            int lastLocation = locationResult.getLocations().size() - 1;
+                            double  latude =
+                                    locationResult.getLocations().get(lastLocation).getLatitude();
+
+                            double  longtude = locationResult.getLocations().get(lastLocation).getLongitude();
+                            sydney = new LatLng(latude, longtude);
+                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 50), 6000, null);
+                            MarkerOptions markerOptions = new MarkerOptions();
+                            markerOptions.position(sydney);
+                            markerOptions.title("location");
+                            markerOptions.snippet("mo");
+                            googleMap.addMarker(markerOptions);
+                            googleMap.getUiSettings().setCompassEnabled(true);
+                            googleMap.getUiSettings().setZoomControlsEnabled(true);
+//                    textViewlong.setText(String.format("Latitude: %s\nLongitude: %s", latude, longtude));
+                            Log.e("formartd", "" + String.format("Latitude: %s\nLongitude: %s", latude, longtude));
+                        }
+//                progressBar.setVisibility(View.GONE);
+                    }
+                }, Looper.getMainLooper());
+
+
+            }
+
+
+        }
+    };
+
+
+    private void getCurrentLocation() {
+//        progressBar.setVisibility(View.VISIBLE);
+
+
     }
 
-//    private void getLocation() {
-//        Log.e("wer", "cb");
-//
-//        fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
-//            @Override
-//            public void onComplete(@NonNull Task<Location> task) {
-//                Location location = task.getResult();
-//                Log.e("uiasdasds", "f");
-//
-//                if (location != null) {
-//
-//                    Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
-//                    try {
-//                        Log.e("vbn", "fg");
-//
-//                        List<Address> addresses = geocoder.getFromLocation(
-//                                location.getLatitude(), location.getLongitude(), 1
-//                        );
-//                        Toast.makeText(context, "" + addresses.get(0).getLongitude(), Toast.LENGTH_SHORT).show();
-//                        Log.e("sdfsdf", "" + addresses.get(0).getLatitude());
-//                        Log.e("sdfsqwewedf", "" + addresses.get(0).getCountryName());
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                        Log.e("vbnmd", "");
-//
-//                    }
-//                } else {
-//                    Toast.makeText(getActivity(), "sdf", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == Requist_Code_Location_Permission && grantResults.length > 0) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                getCurrentLocation();
 
-//
-//    MapsFragment fragment2 = new MapsFragment();
-//    FragmentManager fm = getFragmentManager();
-//    FragmentTransaction fragmentTransaction = fm.beginTransaction();
-//                fragmentTransaction.replace(R.id.edit_frame, fragment2);
-//
-//                fragmentTransaction.commit();
+            } else {
+                Toast.makeText(getActivity(), "Permission Need", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }

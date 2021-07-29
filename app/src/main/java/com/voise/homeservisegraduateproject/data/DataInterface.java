@@ -8,8 +8,10 @@ import com.voise.homeservisegraduateproject.bojo.AuthResponseCustomer;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseProvider;
 import com.voise.homeservisegraduateproject.bojo.CompletedOrderResponse;
 import com.voise.homeservisegraduateproject.bojo.CreateOfferResponse;
+import com.voise.homeservisegraduateproject.bojo.DataInformation;
 import com.voise.homeservisegraduateproject.bojo.FinishOrderResponse;
 import com.voise.homeservisegraduateproject.bojo.HomeProviderResponse;
+import com.voise.homeservisegraduateproject.bojo.InformationApp;
 import com.voise.homeservisegraduateproject.bojo.PendingOrderResponse;
 import com.voise.homeservisegraduateproject.bojo.UnCompletedOrderResponse;
 
@@ -104,9 +106,10 @@ public interface DataInterface {
     @FormUrlEncoded
     @POST("create/Offer")
     public Call<CreateOfferResponse> createOfferRequest(
-            @Field("orderBy") String orderBy);
+            @Field("order_id") int orderBy);
 
-
+    @GET("information/app")
+    public Call<InformationApp> getAllDataInformationResponse();
 //    @GET("order/pending/user")
 //    public Call<PendingOrderResponse> getAllUnCompleteRequest();
 //    @FormUrlEncoded

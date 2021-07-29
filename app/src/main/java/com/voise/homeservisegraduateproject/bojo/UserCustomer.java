@@ -3,7 +3,9 @@ package com.voise.homeservisegraduateproject.bojo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class UserCustomer {
+import java.io.Serializable;
+
+public class UserCustomer implements Serializable {
     @SerializedName("name")
     @Expose
     private String name;

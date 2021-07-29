@@ -17,6 +17,7 @@ import com.voise.homeservisegraduateproject.ui.uiCustomerUser.userSetting.UserSe
 import com.voise.homeservisegraduateproject.uiOfServiceProvider.ui.home_provider.HomeFragmentProvider;
 import com.voise.homeservisegraduateproject.uiOfServiceProvider.ui.more_provider.MoreProviderFragment;
 import com.voise.homeservisegraduateproject.uiOfServiceProvider.ui.order_provider.OrderProviderFragment;
+import com.voise.homeservisegraduateproject.uiOfServiceProvider.ui.setting_provider.ProviderSettingFragment;
 
 public class ServiceProviderMainActivity extends AppCompatActivity {
     BottomNavigationView nav_view_service_provider;
@@ -51,7 +52,7 @@ public class ServiceProviderMainActivity extends AppCompatActivity {
                         return true;
                     case R.id.navigation_notifications:
                         Toast.makeText(ServiceProviderMainActivity.this, "6", Toast.LENGTH_SHORT).show();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_service_provider, new MoreProviderFragment(getApplication())).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_service_provider, new ProviderSettingFragment(getApplication())).commit();
 
                         return true;
                     case R.id.navigation_more:

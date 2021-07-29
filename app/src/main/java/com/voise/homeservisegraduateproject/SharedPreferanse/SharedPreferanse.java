@@ -42,10 +42,13 @@ public class SharedPreferanse {
 
     public static String NameCruft = "NameCruft";
     public static String IDCruft = "IDCruft";
+    public static String p_y_a = "p_y_a";
 
     public static String Type_Complete_Pending_UnComplete = "IMAGE_CATEGORIES";
     public static int Position =  1;
-    public static String TITLE_CATEGORIES = "TITLE_CATEGORIES";
+    public static double Longitude =  1;
+    public static double latitude =  1;
+     public static String TITLE_CATEGORIES = "TITLE_CATEGORIES";
     public static String ID_CATEGORIES = "ID_CATEGORIES";
     public static final String SP_USER = "user";
     public static final String SP_API_TOKEN = "fcm_token";
@@ -84,6 +87,7 @@ public class SharedPreferanse {
         prefsEditor.putInt(String.valueOf(keys), values);
         prefsEditor.apply();
     }
+
     private SharedPreferanse(Context context) {
         this.context = context;
         if (context != null) {
@@ -125,4 +129,24 @@ public class SharedPreferanse {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

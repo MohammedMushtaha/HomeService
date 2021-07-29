@@ -11,8 +11,10 @@ import com.voise.homeservisegraduateproject.bojo.AuthResponseCustomer;
 import com.voise.homeservisegraduateproject.bojo.AuthResponseProvider;
 import com.voise.homeservisegraduateproject.bojo.CompletedOrderResponse;
 import com.voise.homeservisegraduateproject.bojo.CreateOfferResponse;
+import com.voise.homeservisegraduateproject.bojo.DataInformation;
 import com.voise.homeservisegraduateproject.bojo.FinishOrderResponse;
 import com.voise.homeservisegraduateproject.bojo.HomeProviderResponse;
+import com.voise.homeservisegraduateproject.bojo.InformationApp;
 import com.voise.homeservisegraduateproject.bojo.PendingOrderResponse;
 import com.voise.homeservisegraduateproject.bojo.UnCompletedOrderResponse;
 
@@ -71,7 +73,9 @@ public class FunctionServer {
     public Call<AllWorkDataResponse> getAllWorkResponse() {
         return dataInterface.getAllWorkResponse();
     }
-
+    public Call<InformationApp> getAllDataInformationResponse() {
+        return dataInterface.getAllDataInformationResponse();
+    }
     public Call<PendingOrderResponse> getAllPendingRequest() {
         return dataInterface.getAllPendingRequest();
     }
@@ -99,7 +103,7 @@ public class FunctionServer {
         return dataInterface.HomeProviderService(orderBy);
     }
 
-    public Call<CreateOfferResponse> createOfferRequest(String orderBy) {
+    public Call<CreateOfferResponse> createOfferRequest(int orderBy) {
         return dataInterface.createOfferRequest(orderBy);
     }
 

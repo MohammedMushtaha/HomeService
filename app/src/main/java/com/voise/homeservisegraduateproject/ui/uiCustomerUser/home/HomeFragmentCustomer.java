@@ -56,7 +56,6 @@ public class HomeFragmentCustomer extends Fragment {
         horizontalLayoutManagaer
                 = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         fragmentHomeBinding.recyclerView.setLayoutManager(horizontalLayoutManagaer);
-        modelsliders.add(new ImageModel_slider(R.drawable.shape_slider_white));
 
         lettersUserAnswer = new AdapterSliderHome(getActivity(), modelsliders);
         fragmentHomeBinding.recyclerView.setAdapter(lettersUserAnswer);
@@ -70,10 +69,10 @@ public class HomeFragmentCustomer extends Fragment {
 
     public void loadData() {
 
-        modelsliders.add(new ImageModel_slider(R.drawable.shape_slider_white));
-        modelsliders.add(new ImageModel_slider(R.drawable.shape_slider_white));
-        modelsliders.add(new ImageModel_slider(R.drawable.shape_slider_white));
-        modelsliders.add(new ImageModel_slider(R.drawable.shape_slider_white));
+        modelsliders.add(new ImageModel_slider(R.drawable.a));
+        modelsliders.add(new ImageModel_slider(R.drawable.ac));
+        modelsliders.add(new ImageModel_slider(R.drawable.a));
+        modelsliders.add(new ImageModel_slider(R.drawable.az));
 
     }
 

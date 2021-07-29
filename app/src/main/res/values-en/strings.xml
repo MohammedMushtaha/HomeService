@@ -16,6 +16,13 @@
     <string name="ORDER">ORDER </string>
     <string name="Donesent">The ORDER has been sent. A technician will contact you </string>
     <string name="Go_To_Home">Go To Home </string>
+    <string name="about">About Application </string>
+    <string name="Terms_and_Condition">Terms and Condition </string>
+    <string name="Privacy">Privacy and policy</string>
+    <string name="ErorrLogin">Login failed</string>
+    <string name="passandemail">Password and Email  is required </string>
+    <string name="pass1">Password is required </string>
+    <string name="email1">Email is required </string>
 
     <string name="Done">Done </string>
     <string name="AddOrder">Add Order</string>
