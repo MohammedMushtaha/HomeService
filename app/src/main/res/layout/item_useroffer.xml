@@ -12,25 +12,25 @@
         android:src="@drawable/as" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:orientation="vertical">
 
         <com.voise.homeservisegraduateproject.customfonts.MyTextView
             android:id="@+id/name"
-            android:layout_width="wrap_content"
+            android:layout_width="550dp"
             android:layout_height="wrap_content"
             android:text="Mohammed R."
             android:textColor="@color/black"
-            android:textSize="13sp" />
+            android:textSize="11sp" />
 
         <com.voise.homeservisegraduateproject.customfonts.MyTextView
 
             android:id="@+id/date"
-            android:layout_width="match_parent"
+            android:layout_width="550dp"
             android:layout_height="wrap_content"
             android:text="25.02.2020"
-            android:textSize="13sp" />
+            android:textSize="10sp" />
     </LinearLayout>
 </LinearLayout>

@@ -33,7 +33,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ac" />
+                android:src="@drawable/shape_setting_image_user" />
+
 
 
             <com.voise.homeservisegraduateproject.customfonts.MyTextView
@@ -64,7 +65,6 @@
             android:layoutDirection="locale"
             android:orientation="horizontal"
             android:padding="10dp"
-
             android:weightSum="2">
 
             <RelativeLayout
@@ -205,11 +205,16 @@
             android:layout_marginStart="15dp"
             android:orientation="horizontal">
 
-            <ImageView
+
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/image_avatar"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:src="@drawable/as" />
+                android:background="@drawable/elevation"
+                android:layoutDirection="locale"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_baseline_perm_identity_24" />
+
 
             <LinearLayout
                 android:layout_width="wrap_content"

@@ -47,16 +47,16 @@ public class ServiceProviderMainActivity extends AppCompatActivity {
 
                         return true;
                     case R.id.navigation_order:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_service_provider, new OrderProviderFragment(getApplication())).commit();
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_service_provider, new OrderProviderFragment(getApplication())).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_service_provider, new PlaceholderFragment(getApplication())).commit();
 
                         return true;
                     case R.id.navigation_notifications:
-                        Toast.makeText(ServiceProviderMainActivity.this, "6", Toast.LENGTH_SHORT).show();
+
                         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_service_provider, new ProviderSettingFragment(getApplication())).commit();
 
                         return true;
                     case R.id.navigation_more:
-                        Toast.makeText(ServiceProviderMainActivity.this, "66", Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_service_provider, new MoreFragment(getApplication())).commit();
 
                         return true;

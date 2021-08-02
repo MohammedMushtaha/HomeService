@@ -42,6 +42,8 @@
     <string name="tab_Completed">Completed</string>
     <string name="tab_Underway">Underway</string>
     <string name="Contact_Us">Contact Us</string>
+    <string name="Contact_withprovider">Contact provider</string>
+
     <string name="Send">Send</string>
     <string name="Favorite">Favorite</string>
     <string name="Language">Language</string>

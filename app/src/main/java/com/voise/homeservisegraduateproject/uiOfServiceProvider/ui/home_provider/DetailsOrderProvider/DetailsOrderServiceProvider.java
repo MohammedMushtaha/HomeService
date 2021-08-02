@@ -41,11 +41,13 @@ DetailsViewModel detailsViewModel;
         dataHomeProviderResponse = (DataHomeProviderResponse) getIntent().getSerializableExtra("data5");
         TextView textdet = findViewById(R.id.text);
         Button social = findViewById(R.id.social);
+        TextView text_details = findViewById(R.id.text_details);
         LinearLayout linear_map = findViewById(R.id.linear_map);
         ImageView image_view_pager_stadiums_details = findViewById(R.id.image_view_pager_stadiums_details);
         View buttomSheet1 = findViewById(R.id.buttomSheet1);
         bottomSheetBehavior = BottomSheetBehavior.from(buttomSheet1);
         textdet.setText(dataHomeProviderResponse.getDetailsAddress());
+        text_details.setText("الطابق الرابع ");
 
         try {
             Picasso.with(DetailsOrderServiceProvider.this)
@@ -61,7 +63,7 @@ DetailsViewModel detailsViewModel;
         linear_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame, new MapsProviderFragment(getApplication())).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame, new MapsProviderFragment(getApplication(),dataHomeProviderResponse.getLong(),dataHomeProviderResponse.getLat())).commit();
 
             }
         });

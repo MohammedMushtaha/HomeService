@@ -12,12 +12,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.developer.kalert.KAlertDialog;
 import com.squareup.picasso.Picasso;
 import com.voise.homeservisegraduateproject.R;
 import com.voise.homeservisegraduateproject.SharedPreferanse.SharedPreferanse;
 import com.voise.homeservisegraduateproject.bojo.DataWork;
 import com.voise.homeservisegraduateproject.interfaces.ItemClickLisener;
+import com.voise.homeservisegraduateproject.ui.MainActivity;
+import com.voise.homeservisegraduateproject.ui.auth.login.LoginActivity;
 import com.voise.homeservisegraduateproject.ui.uiCustomerUser.home.AddOrderProblemActivity;
+import com.voise.homeservisegraduateproject.ui.uiCustomerUser.order.PlaceholderFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,9 +57,32 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Po
                  SharedPreferanse.write(SharedPreferanse.NameCruft, movie.getName());
                  SharedPreferanse.write(SharedPreferanse.IDCruft, movie.getId());
 
-                Intent i = new Intent(activity, AddOrderProblemActivity.class);
-                i.putExtra("data", movie);
-                activity.startActivity(i);
+
+                if (SharedPreferanse.read(SharedPreferanse.gist, "1").equals("1")) {
+                    new KAlertDialog(activity)
+                            .setTitleText("غير مصرح بالدخول")
+                            .setContentText("يجب تسجيل دخول ")
+                            .setConfirmText("موافق")
+                            .setCancelClickListener(new KAlertDialog.KAlertClickListener() {
+                                @Override
+                                public void onClick(KAlertDialog kAlertDialog) {
+                                    Intent i = new Intent(activity, LoginActivity.class);
+                                   activity. startActivity(i);
+                                    activity.finish();
+                                }
+                            })
+                            .confirmButtonColor(R.color.colorRed)
+                            .cancelButtonColor(R.color.colorRed)
+                            .show();
+                } else {
+
+                    Intent i = new Intent(activity, AddOrderProblemActivity.class);
+                    i.putExtra("data", movie);
+                    activity.startActivity(i);
+
+                }
+
+
             }
         });
     }

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
 import com.voise.homeservisegraduateproject.R;
 import com.voise.homeservisegraduateproject.bojo.DataOfferResponse;
 import com.voise.homeservisegraduateproject.interfaces.ItemClickLisener;
@@ -23,7 +24,7 @@ import java.util.List;
 
 public class AllOfferUserAdapter extends RecyclerView.Adapter<AllOfferUserAdapter.PostViewHolder> {
     private List<DataOfferResponse> dataWorks = new ArrayList<>();
-     Activity activity;
+    Activity activity;
 
     @NonNull
     @Override
@@ -39,12 +40,16 @@ public class AllOfferUserAdapter extends RecyclerView.Adapter<AllOfferUserAdapte
         holder.date.setText(movie.getCreatedAt());
 
 //        Picasso.with(activity).load(movie.getImage()).into(holder.image_item);
+        try {
+            Picasso.with(activity)
+                    .load(dataWorks.get(position).getPhoto())
+                    .centerCrop()
+                    .resize(200, 200)
+                    .placeholder(R.drawable.as).into(holder.image_avatar);
+        } catch (Exception e) {
 
-//        Picasso.with(activity)
-//                .load(dataWorks.get(position).getPhoto())
-//                .centerCrop()
-//                .resize(200, 200)
-//                .placeholder(R.drawable.as).into(holder.image_avatar);
+        }
+
 
         holder.setItemClickListener(new ItemClickLisener() {
             @Override
@@ -70,7 +75,7 @@ public class AllOfferUserAdapter extends RecyclerView.Adapter<AllOfferUserAdapte
     }
 
     public class PostViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener, View.OnClickListener {
-        private TextView name,date;
+        private TextView name, date;
         private ImageView image_avatar;
         private ItemClickLisener itemClickLisener;
 

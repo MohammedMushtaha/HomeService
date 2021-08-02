@@ -4,6 +4,7 @@ package com.voise.homeservisegraduateproject.utils;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.core.content.res.ResourcesCompat;
 import com.developer.kalert.KAlertDialog;
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.voise.homeservisegraduateproject.R;
+import com.voise.homeservisegraduateproject.ui.MainActivity;
 import com.voise.homeservisegraduateproject.ui.auth.login.LoginActivity;
 
 import www.sanju.motiontoast.MotionToast;
@@ -74,6 +76,7 @@ public class Functions {
                 .cancelButtonColor(R.color.colorRed)
                 .show();
     }
+
 
     public void click_out(Activity activity) {
         View view = activity.getCurrentFocus();

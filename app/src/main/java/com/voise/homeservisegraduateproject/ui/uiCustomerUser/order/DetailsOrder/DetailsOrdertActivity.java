@@ -45,7 +45,6 @@ public class DetailsOrdertActivity extends AppCompatActivity {
     AllOfferUserAdapter allOfferUserAdapter;
     LinearLayoutManager horizontalLayoutManagaer;
 //    PhotoOrderResponse photoOrderResponse;
-
     private List<PhotoOrderResponse> photoOrderResponse = new ArrayList<>();
 
     @Override
@@ -57,7 +56,6 @@ public class DetailsOrdertActivity extends AppCompatActivity {
         detailsOrdertBinding = DataBindingUtil.setContentView(this, R.layout.activity_details_ordert);
 
         int Position = Integer.parseInt(String.valueOf(SharedPreferanse.read2(SharedPreferanse.Position, 1)));
-//        Toast.makeText(this, "d"+SharedPreferanse.read2(SharedPreferanse.Position,1), Toast.LENGTH_SHORT).show();
         if (SharedPreferanse.read(SharedPreferanse.Type_Complete_Pending_UnComplete, "1").equals("1")) {
             dataUnCompletedResponse = (DataUnCompletedResponse) getIntent().getSerializableExtra("data1");
             detailsOrdertBinding.recyclerViewListUser.setVisibility(View.GONE);
@@ -68,10 +66,7 @@ public class DetailsOrdertActivity extends AppCompatActivity {
             detailsOrdertBinding.details.setText(dataUnCompletedResponse.getDetails());
             detailsOrdertBinding.textPhone.setText(dataUnCompletedResponse.getPhone());
             detailsOrdertBinding.recommended.setText("UnderWay");
-
-
             adapterSliderDetails = new AdapterSliderDetails(DetailsOrdertActivity.this, dataUnCompletedResponse.getPhotoOrder());
-
             detailsOrdertBinding.imageViewSlider.setAdapter(adapterSliderDetails);
             detailsOrdertBinding.indicatorTabLayoutStadiumsDetails.setupWithViewPager(detailsOrdertBinding.imageViewSlider);
 
@@ -90,7 +85,6 @@ public class DetailsOrdertActivity extends AppCompatActivity {
                             if (authResponse.getSuccess()) {
                                 Functions.getInstanse().hideDialog();
                                 Log.e("ex1", "00");
-
 //                                LoadFragment();
                                 Toast.makeText(DetailsOrdertActivity.this, "تم انهاء الطلب ", Toast.LENGTH_SHORT).show();
                             } else {
@@ -99,13 +93,9 @@ public class DetailsOrdertActivity extends AppCompatActivity {
                                 Functions.getInstanse().diaLog(DetailsOrdertActivity.this, "فشلت عملية انهاء الطلب", authResponse.getMessage(), "موافق");
                                 Log.e("ex1", "1111");
                                 Toast.makeText(DetailsOrdertActivity.this, "Error", Toast.LENGTH_SHORT).show();
-
                             }
-
                         }
                     });
-
-
                 }
             });
 
@@ -157,8 +147,6 @@ public class DetailsOrdertActivity extends AppCompatActivity {
 //                    .error(R.drawable.shape_setting_image_user)
 //                    .into(detailsOrdertBinding.imageViewSlider);
         }
-
-
     }
 
     public void getAllWorkData() {

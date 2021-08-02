@@ -19,10 +19,10 @@ public class DataHomeProviderResponse  implements Serializable {
     private String detailsAddress;
     @SerializedName("lat")
     @Expose
-    private String lat;
+    private double lat;
     @SerializedName("long")
     @Expose
-    private String _long;
+    private double _long;
     @SerializedName("created_at")
     @Expose
     private String createdAt;
@@ -63,19 +63,19 @@ public class DataHomeProviderResponse  implements Serializable {
         this.detailsAddress = detailsAddress;
     }
 
-    public String getLat() {
+    public double getLat() {
         return lat;
     }
 
-    public void setLat(String lat) {
+    public void setLat(double lat) {
         this.lat = lat;
     }
 
-    public String getLong() {
+    public double getLong() {
         return _long;
     }
 
-    public void setLong(String _long) {
+    public void setLong(double _long) {
         this._long = _long;
     }
 

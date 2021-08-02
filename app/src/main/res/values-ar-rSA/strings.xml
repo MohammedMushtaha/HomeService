@@ -41,6 +41,7 @@
     <string name="tab_Completed">منتهية</string>
     <string name="tab_Underway">قيد التنفيذ</string>
     <string name="Contact_Us">تواصل معنا</string>
+    <string name="Contact_withprovider">تواصل مع مقدم الخدمة</string>
     <string name="Send">إرسال</string>
     <string name="Favorite">المفضلة</string>
     <string name="Language">اللغة</string>

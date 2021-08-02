@@ -25,6 +25,8 @@ import com.voise.homeservisegraduateproject.uiOfServiceProvider.ui.home_provider
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 public class HomeProviderAdapter extends RecyclerView.Adapter<HomeProviderAdapter.PostViewHolder> {
     private List<DataHomeProviderResponse> dataWorks = new ArrayList<>();
@@ -56,6 +58,16 @@ public class HomeProviderAdapter extends RecyclerView.Adapter<HomeProviderAdapte
             Log.e("", "");
         }
 
+        try {
+            Picasso.with(activity)
+                    .load(R.drawable.abuas)
+                    .centerCrop()
+                    .resize(200, 200)
+                    .placeholder(R.drawable.ic_electricity_logo).into(holder.image_avatar);
+        } catch (Exception e) {
+            Log.e("", "");
+        }
+
 
         holder.setItemClickListener(new ItemClickLisener() {
             @Override
@@ -83,6 +95,7 @@ public class HomeProviderAdapter extends RecyclerView.Adapter<HomeProviderAdapte
     public class PostViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener, View.OnClickListener {
         private TextView order_date, serviceType, orderid, name;
         private ImageView order_image;
+        private CircleImageView image_avatar;
         private ItemClickLisener itemClickLisener;
 
         public PostViewHolder(@NonNull View itemView) {
@@ -93,6 +106,7 @@ public class HomeProviderAdapter extends RecyclerView.Adapter<HomeProviderAdapte
 //            date_createAt = itemView.findViewById(R.id.rating);
             serviceType = itemView.findViewById(R.id.serviceType);
             order_image = itemView.findViewById(R.id.order_image);
+            image_avatar = itemView.findViewById(R.id.image_avatar);
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
         }

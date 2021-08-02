@@ -11,11 +11,7 @@ import android.widget.RelativeLayout;
 
 import com.voise.homeservisegraduateproject.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link EditAccountFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class EditAccountFragment extends Fragment {
 
     public EditAccountFragment() {

@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                 activityLoginBinding.lineService.setVisibility(View.VISIBLE);
                 activityLoginBinding.lineCustomer.setVisibility(View.GONE);
                 SharedPreferanse.write(SharedPreferanse.LoginChoice, "1");
-
+                activityLoginBinding.goToGist.setVisibility(View.GONE);
             }
         });
 
@@ -68,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                 activityLoginBinding.lineCustomer.setVisibility(View.VISIBLE);
                 activityLoginBinding.lineService.setVisibility(View.GONE);
                 SharedPreferanse.write(SharedPreferanse.LoginChoice, "2");
+                activityLoginBinding.goToGist.setVisibility(View.VISIBLE);
 
 
             }
@@ -107,16 +108,35 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        activityLoginBinding.goToGist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferanse.write(SharedPreferanse.gist, "1");
+
+                Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(i);
+                finish();
+
+            }
+        });
     }
 
     private void LoadFragment() {
+        SharedPreferanse.write(SharedPreferanse.gist, "0");
         Intent i = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(i);
+        finish();
+
     }
 
     private void LoadFragmentProvider() {
+        SharedPreferanse.write(SharedPreferanse.gist, "0");
+
         Intent i = new Intent(LoginActivity.this, ServiceProviderMainActivity.class);
         startActivity(i);
+        finish();
+
     }
 
     public void LoginResponse() {
@@ -133,7 +153,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (authResponse.isStatus()) {
                         Functions.getInstanse().hideDialog();
                         Log.e("ex1", "6");
-                        Toast.makeText(LoginActivity.this, "Donee", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(LoginActivity.this, "Donee", Toast.LENGTH_SHORT).show();
                         SharedPreferanse.write(SharedPreferanse.IDProvider, authResponse.getData().getId() + "");
                         SharedPreferanse.write(SharedPreferanse.USERNAMEProvider, authResponse.getData().getEmail());
                         SharedPreferanse.write(SharedPreferanse.EmailProvider, authResponse.getData().getName());
@@ -149,7 +169,7 @@ public class LoginActivity extends AppCompatActivity {
                         Functions.getInstanse().diaLog(LoginActivity.this, "فشلت عملية تسجيل الدخول", authResponse.getMessage(), "موافق");
 //                    Functions.getInstanse().func2(LoginActivity.this,"فشلت عملية تسجيل الدخول"+authResponse.getMessage());
                         Log.e("sdsdsdsd", "1111");
-                        Toast.makeText(LoginActivity.this, "Error", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(LoginActivity.this, "Error", Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -168,7 +188,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (authResponse.isStatus()) {
                         Functions.getInstanse().hideDialog();
                         Log.e("ex1", "00");
-                        Toast.makeText(LoginActivity.this, "Donee", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(LoginActivity.this, "Donee", Toast.LENGTH_SHORT).show();
                         SharedPreferanse.write(SharedPreferanse.IDCustomer, authResponse.getData().getId() + "");
                         SharedPreferanse.write(SharedPreferanse.USERNAMECustomer, authResponse.getData().getEmail());
                         SharedPreferanse.write(SharedPreferanse.EmailCustomer, authResponse.getData().getName());
@@ -187,13 +207,12 @@ public class LoginActivity extends AppCompatActivity {
 //                                ResourcesCompat.getFont(LoginActivity.this, R.font.helvetica_regular));
 
 
-
                     } else {
                         Functions.getInstanse().hideDialog();
 
                         Functions.getInstanse().diaLog(LoginActivity.this, "فشلت عملية تسجيل الدخول", authResponse.getMessage(), "موافق");
                         Log.e("ex1", "1111");
-                        Toast.makeText(LoginActivity.this, "Error", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(LoginActivity.this, "Error", Toast.LENGTH_SHORT).show();
 
                     }
 

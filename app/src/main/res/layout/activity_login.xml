@@ -85,6 +85,7 @@
                             android:layout_width="20dp"
                             android:layout_height="2dp"
                             android:layout_marginTop="6dp"
+                            android:orientation="horizontal"
                             android:background="@color/colorDark">
 
 
@@ -119,6 +120,7 @@
                             android:layout_width="20dp"
                             android:layout_height="2dp"
                             android:layout_marginTop="6dp"
+                            android:orientation="horizontal"
                             android:background="@color/colorDark"
                             android:visibility="gone">
 
@@ -271,7 +273,7 @@
                     android:layout_weight="4">
 
                     <com.voise.homeservisegraduateproject.customfonts.MyTextView
-                        android:id="@+id/go"
+                        android:id="@+id/go_to_gist"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
@@ -283,6 +285,7 @@
                         android:text="@string/get_start_now"
                         android:textColor="@color/black"
                         android:textSize="14sp"
+                        android:visibility="gone"
                         android:textStyle="bold" />
                 </RelativeLayout>
             </LinearLayout>

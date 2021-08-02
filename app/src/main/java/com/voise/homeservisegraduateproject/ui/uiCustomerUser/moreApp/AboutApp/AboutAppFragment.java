@@ -67,7 +67,7 @@ public class AboutAppFragment extends Fragment {
                 if (SharedPreferanse.read(SharedPreferanse.p_y_a, "").equals("1")) {
                     fragmentAboutAppBinding.textAboutUs.setText(dataWorks.get(0).getDescription());
                     title_toolbar.setText(R.string.about);
-                    fragmentAboutAppBinding.socialLayout.setVisibility(View.VISIBLE);
+                    fragmentAboutAppBinding.socialLayout.setVisibility(View.GONE);
 
                 } else if (SharedPreferanse.read(SharedPreferanse.p_y_a, "").equals("2")) {
                     fragmentAboutAppBinding.textAboutUs.setText(dataWorks.get(0).getDescription());

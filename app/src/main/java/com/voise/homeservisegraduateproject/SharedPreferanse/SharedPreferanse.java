@@ -46,6 +46,7 @@ public class SharedPreferanse {
 
     public static String Type_Complete_Pending_UnComplete = "IMAGE_CATEGORIES";
     public static int Position =  1;
+    public static String gist = "gist";
     public static double Longitude =  1;
     public static double latitude =  1;
      public static String TITLE_CATEGORIES = "TITLE_CATEGORIES";

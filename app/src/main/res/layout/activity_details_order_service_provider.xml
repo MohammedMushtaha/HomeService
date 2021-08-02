@@ -123,7 +123,7 @@
 
                     android:background="@drawable/elevation"
                     android:layoutDirection="locale"
-
+android:padding="10dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_baseline_perm_identity_24" />
 
@@ -136,7 +136,6 @@
                      android:layout_marginTop="35dp"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="30dp"
-                     android:text="مركز براعة القمة"
                     android:textColor="#000"
                     android:textSize="15sp" />
 
@@ -212,7 +211,7 @@
                         android:layout_marginEnd="20dp"
                         android:layout_marginStart="20dp"
                          android:gravity="center"
-                        android:text="لايوجد إسم"
+                        android:text="إذهب الى الخريطة "
                         android:textColor="#000" />
 
 
@@ -221,16 +220,15 @@
 
                 <com.voise.homeservisegraduateproject.customfonts.MyTextView
                     android:id="@+id/text_details"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/linear_map"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginLeft="30dp"
+                    android:layout_alignParentStart="true"
+                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="30dp"
                     android:gravity="start"
-                    android:layoutDirection="rtl"
-                    android:text="لا يوجد تفاصيل"
+                     android:text="الطابق الرابع/ شقة 5"
                     android:textColor="#000"
                     android:textDirection="rtl"
                     android:textStyle="bold" />

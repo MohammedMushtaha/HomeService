@@ -5,10 +5,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -20,27 +24,29 @@ import com.voise.homeservisegraduateproject.R;
 
 public class MapsProviderFragment extends Fragment {
     Context context;
-
-    public MapsProviderFragment(Context context) {
+    double longitude,latitude;
+    View view;
+    public MapsProviderFragment(Context context,double longitude,double latitude) {
         this.context = context;
+        this.latitude=latitude;
+        this.longitude=longitude;
+
 
     }
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
-        /**
-         * Manipulates the map once available.
-         * This callback is triggered when the map is ready to be used.
-         * This is where we can add markers or lines, add listeners or move the camera.
-         * In this case, we just add a marker near Sydney, Australia.
-         * If Google Play services is not installed on the device, the user will be prompted to
-         * install it inside the SupportMapFragment. This method will only be triggered once the
-         * user has installed Google Play services and returned to the app.
-         */
+
         @Override
         public void onMapReady(GoogleMap googleMap) {
-            LatLng sydney = new LatLng(-34, 151);
-            googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            LatLng sydney = new LatLng(latitude, longitude);
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10), 6000, null);
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(sydney);
+            markerOptions.title("dfg");
+            markerOptions.snippet("234");
+            googleMap.addMarker(markerOptions);
+            googleMap.getUiSettings().setCompassEnabled(true);
+            googleMap.getUiSettings().setZoomControlsEnabled(true);
         }
     };
 
@@ -49,7 +55,15 @@ public class MapsProviderFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_maps_provider, container, false);
+      view = inflater.inflate(R.layout.fragment_maps_provider, container, false);
+        Toast.makeText(context, ""+longitude+latitude, Toast.LENGTH_SHORT).show();
+        try {
+            loadNavigationView(31.5111637,34.4415131);
+
+        } catch (Exception e) {
+            Log.e("Map", "Error");
+        }
+        return view;
     }
 
     @Override
@@ -61,4 +75,12 @@ public class MapsProviderFragment extends Fragment {
             mapFragment.getMapAsync(callback);
         }
     }
+
+    public void loadNavigationView(double lat, double lng) {
+        Uri navigation = Uri.parse("google.navigation:q=" + 31.5111637 + "," + 34.4415131 + "");
+        Intent navigationIntent = new Intent(Intent.ACTION_VIEW, navigation);
+        navigationIntent.setPackage("com.google.android.apps.maps");
+        startActivity(navigationIntent);
+    }
+
 }
